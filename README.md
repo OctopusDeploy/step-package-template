@@ -76,7 +76,7 @@ Creating a new target involves creating the following files under the `targets/<
 
 The `metadata.json` file provides details about the target. A sample is shown below:
 
-https://github.com/OctopusDeploy/step-package-template/blob/eca604f5111c817a082855a9a53002888748e69b/targets/hello-world-target/src/metadata.json
+https://github.com/OctopusDeploy/step-package-template/blob/eca604f5111c817a082855a9a53002888748e69b/targets/hello-world-target/src/metadata.json#L1-L11
 
 The expected contents of `metadata.json` are documented within the [step package documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/StepPackages.md#metadata)
 
