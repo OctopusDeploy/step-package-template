@@ -1,19 +1,37 @@
-Step packages are an evolution in the development of Octopus steps. [Step packages address many of the concerns](https://github.com/OctopusDeploy/Architecture/tree/main/Steps) that made it difficult to implement new functionality as Octopus scaled up in terms of internal team size and external surface area. In particular, step packages are:
+Step packages are how steps and deployment targets are developed for Octopus Deploy. 
 
-* Developed outside the main Octopus code base.
-* Tested as isolated and independent projects.
-* Distributed on their own independent timelines (not quite implemented yet).
-* Independently versioned, with each version able to be run side-by-side (not implemented yet).
+Step packages are:
 
-This sample project provides a starting point for anyone looking to create a new step package. The code in this repository defines a "Hello World" target and step demonstrating a minimal step package implementation.
+* Nodejs based.
+* Developed and tested outside the main Octopus Server code base.
+* Packaged as simple zip files.
+* Published on their own independent timelines (not quite implemented yet).
+* Independently versioned, with each version able to be run side-by-side with existing versions.
 
-## Project directory structure
+This sample template provides a starting point for anyone looking to create a new step package. The code in this repository defines a _Hello World_ target and step demonstrating a minimal step package implementation.
 
-The directory structure of a step package is shown below:
+Building this template will result in two step packages being produced: 
+- `hello-world-target.x.y.z.zip` 
+- `hello-world-upload.x.y.z.zip`
+
+Any step packages built from this template will be compatible with Octopus Server v2021.3 and newer.
+
+To learn more about step packages, consult the [step package documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/StepPackages.md)
+
+## Project structure
+
+Step package repositories use a _monorepo_ structure, which supports:
+- Independent versioning and change log management for steps and deployment targets
+- Simpler consumption patterns for target inputs within steps
+- Simpler change propagation across multiple versions of steps
+
+We strongly recommend the use of [PNPM workspaces](https://pnpm.io/workspaces) and [Changesets](https://github.com/atlassian/changesets) for package, build, and release management within the monorepo. This template pre-configures these tools for you.
+
+The preferred directory structure for a step package mono-repo is shown below:
 
 * `\`
   * `steps` - A directory containing one or more step definitions.
-    * `<step-name>` - A directory containing the definition of a step. There may be many of these directories defining many steps within a single step package.
+    * `<step-name>` - A directory containing the definition of a step. There may be many of these directories defining many steps or versions of a step within a single step package.
       * `src` - The parent directory containing the step code and assets.
         * `__tests__` - The directory containing step tests.
           * `executor.spec.ts` - Tests validating the logic in the `executor.ts` file.
@@ -22,64 +40,45 @@ The directory structure of a step package is shown below:
         * `logo.svg` - The image to be displayed in the Octopus web UI for the step.
         * `metadata.json` - The step metadata.
         * `ui.ts` - The step UI definition.
-        * `validation.ts` - The step validation rules.
-  * `targets` - A directory containing one or more target definitions.
-    * `<target-name>` - A directory containing the definition of a target. There may be many of these directories defining many steps within a single step package.
-      * `src` - The parent directory containing the target code and assets.
-        * `__tests__` - The directory containing target tests.
-          * `executor.spec.ts` - Tests validating the logic in the `executor.ts` file.
-        * `executor.ts` - The code to be executed when a target health check is run by Octopus.
-        * `inputs.ts` - The definition of the inputs required by the target.
-        * `logo.svg` - The image to be displayed in the Octopus web UI for the target.
-        * `metadata.json` - The target metadata.
-        * `ui.ts` - The target UI definition.
-        * `validation.ts` - The target validation rules.
+        * `validation.ts` - The step input validation rules.
+      * `CHANGELOG.md` - The [Changesets](https://github.com/atlassian/changesets) CHANGELOG.
+      * `package.json` - The packages required by this step.
+      * `tsconfig.json` - The [TypeScript compiler options file](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) for this step.
+  * `targets` - A directory containing one or more deployment target definitions.
+    * `<target-name>` - A directory containing the definition of a deployment target. There may be many of these directories defining many targets within a single step package. The structure of the contents for a target is identical to that of a step - see `<step-name>`.
+      * **NOTE**: Versioning of deployment targets beyond minor and patch bumps of the published `1.0` verison is not supported.
   * `.eslintignore` - The [ESLint ignore file](https://eslint.org/docs/user-guide/configuring/ignoring-code#the-eslintignore-file).
   * `.eslintrc.js` - The [ESLint configuration file](https://eslint.org/docs/user-guide/configuring/).
   * `.gitignore` - The [git ignore file](https://git-scm.com/docs/gitignore).
   * `.prettierrc` - The [prettier configuration file](https://prettier.io/docs/en/configuration.html).
   * `global.d.ts` - The [TypeScript global libraries](https://www.typescriptlang.org/docs/handbook/declaration-files/templates/global-d-ts.html).
   * `package.json` - The [Node.js project file](https://nodejs.org/en/knowledge/getting-started/npm/what-is-the-file-package-json/).
-  * `package-lock.json` - The [specific package versions](https://docs.npmjs.com/cli/v7/configuring-npm/package-lock-json) to be retrieved by npm.
+  * `pnpm-lock.json` - The [specific package versions](https://docs.npmjs.com/cli/v7/configuring-npm/package-lock-json) to be retrieved by PNPM.
+  * `pnpm-workspace.json` - The [PNPM workspace definition file](https://pnpm.io/workspaces).
   * `tsconfig.json` - The [TypeScript compiler options file](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
 ## Creating a new target
 
-Creating a new target involves creating the following files under the `targets/<target-name>-target/src` directory. In the case of this sample step package, we'll create them under `targets/hello-world-target/src`:
+Step packages have a [convention based structure](https://github.com/OctopusDeploy/step-api/blob/main/docs/StepPackages.md#conventions).
 
-* `metadata.json`
-* `inputs.ts`
-* `executor.js`
-* `ui.ts`
-* `validation.ts`
+Creating a new target involves creating the following files under the `targets/<target-name>-target` directory. In the case of this sample step package, we'll create them under `targets/hello-world-target`:
+
+* `src`
+  * `metadata.json`
+  * `inputs.ts`
+  * `executor.js`
+  * `ui.ts`
+  * `validation.ts`
+* `package.json`
+* `tsconfig.json`
 
 ### `metadata.json`
 
 The `metadata.json` file provides details about the target. A sample is shown below:
 
-```json
-{
-  "schemaVersion": "1.0.0",
-  "version": "0.0.0",
-  "type": "deployment-target",
-  "id": "hello-world-target",
-  "name": "Hello world target",
-  "description": "An example target that does nothing useful",
-  "categories": [
-    "Linux"
-  ],
-  "launcher": "node"
-}
-```
+https://github.com/OctopusDeploy/step-package-template/blob/eca604f5111c817a082855a9a53002888748e69b/targets/hello-world-target/src/metadata.json
 
-* `schemaVersion` is the version of the metadata file. `1.0.0` is the only version available.
-* `version` is the version of the target. Versioning is covered in detail [here](https://github.com/OctopusDeploy/Architecture/blob/main/Steps/Concepts/Versioning.md).
-* `type` defines the type of resource to be created. It must be `deployment-target` for a target.
-* `id` is the resource ID.
-* `name` is the name of the target displayed by the Octopus web UI.
-* `description` is the description of the target displayed by the Octopus UI.
-* `categories` is an array containing one or more target categories display by the Octopus UI where the target will be listed.
-* `launcher` defines how the step is executed. A value of `node` means the step is executed by Node.js.
+The expected contents of `metadata.json` are documented within the [step package documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/StepPackages.md#metadata)
 
 ### `inputs.ts`
 
