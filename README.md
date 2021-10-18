@@ -21,9 +21,11 @@ To learn more about step packages, consult the [step package documentation](http
 ## Project structure
 
 Step package repositories use a _monorepo_ structure, which supports:
-- Independent versioning and change log management for steps and deployment targets
+- Independent versioning and change log management for steps and deployment targets within a single repository
 - Simpler consumption patterns for target inputs within steps
 - Simpler change propagation across multiple versions of steps
+
+A single step package repository is modelled on a volatility boundary - it groups together a set of steps and targets we reasonably expect to change together.
 
 We strongly recommend the use of [PNPM workspaces](https://pnpm.io/workspaces) and [Changesets](https://github.com/atlassian/changesets) for package, build, and release management within the monorepo. This template pre-configures these tools for you.
 
@@ -57,11 +59,15 @@ The preferred directory structure for a step package mono-repo is shown below:
   * `pnpm-workspace.json` - The [PNPM workspace definition file](https://pnpm.io/workspaces).
   * `tsconfig.json` - The [TypeScript compiler options file](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
-## Creating a new target
+## Creating a new step package
 
 Step packages have a [convention based structure](https://github.com/OctopusDeploy/step-api/blob/main/docs/StepPackages.md#conventions).
 
-Creating a new target involves creating the following files under the `targets/<target-name>-target` directory. In the case of this sample step package, we'll create them under `targets/hello-world-target`:
+They implement a common [Step API](https://github.com/OctopusDeploy/step-api/blob/main/docs/StepPackages.md#step-api) which comprises the types you are required to implement to present a conforming step package.
+
+### Adding a new target
+
+Adding a new target involves creating the following files under the `targets/<target-name>-target` directory. In the case of this sample step package, we'll create them under `targets/hello-world-target`:
 
 * `src`
   * `metadata.json`
@@ -76,11 +82,13 @@ Creating a new target involves creating the following files under the `targets/<
 
 The `metadata.json` file provides details about the target. A sample is shown below:
 
-https://github.com/OctopusDeploy/step-package-template/blob/eca604f5111c817a082855a9a53002888748e69b/targets/hello-world-target/src/metadata.json#L1-L11
+https://github.com/OctopusDeploy/step-package-template/blob/eca604f5111c817a082855a9a53002888748e69b/targets/hello-world-target/src/metadata.json
 
 The expected contents of `metadata.json` are documented within the [step package documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/StepPackages.md#metadata)
 
 ### `inputs.ts`
+
+[Documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/Inputs.md)
 
 The `inputs.ts` file exports an interface defining the input fields required by the target. This interface is consumed by `executor.ts` to read the values when performing the target's health check, `ui.ts` to build up the form exposed in the Octopus web UI, and `validate.ts` to verify new values.
 
@@ -94,59 +102,32 @@ export default interface HelloWorldTargetInputs {
 
 ### `executor.ts`
 
+[Documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/Executor.md)
 Targets perform a health check to validate their inputs and check the state of the system they represent. This health check is performed by the function exported by the `executor.ts` file.
 
 The example below prints some text to the log during a health check, and will always pass, meaning the target is always healthy:
 
-```typescript
-import { Handler } from "@octopusdeploy/step-api";
-import HelloWorldTargetInputs from "./inputs";
-
-const HelloWorldDeploymentTargetHealthCheckExecutor: Handler<HelloWorldTargetInputs> = async (_, context) => {
-    context.print("Hello world target is healthy");
-};
-
-export default HelloWorldDeploymentTargetHealthCheckExecutor;
-```
+https://github.com/OctopusDeploy/step-package-template/blob/eca604f5111c817a082855a9a53002888748e69b/targets/hello-world-target/src/executor.ts
 
 ### `ui.ts`
+
+[Documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/StepUI.md)
 
 The form displayed by the Octopus web UI is defined by the function exported by the `ui.ts` file. The form is defined as an instance of the `DeploymentTargetUI` interface, which has two functions: `createInitialInputs` and `editInputsForm`.
 
 The `createInitialInputs` function allows the initial default field values to be defined.
 
-The `editInputsForm` function provides a DSL for building the user interface. The first parameter is the inputs defined in `inputs.ts`. The second parameter is an instance of `AvailableDeploymentTargetComponents`, which has factory functions for creating various input widgets like text fields, lists, radio buttons etc.
+The `editInputsForm` function provides a DSL for building the user interface. The parameter is the inputs type defined in `inputs.ts`. 
+
+The various field components like `text` are imported from `@octopusdeploy/step-api`.
 
 Here we define the initial value of the `greetingPrefix` input to be `Hello`, and build the form with a single `text` input:
 
-```typescript
-import { DeploymentTargetUI } from "@octopusdeploy/step-api";
-import HelloWorldTargetInputs from "./inputs";
-
-export const HelloWorldTargetUI: DeploymentTargetUI<HelloWorldTargetInputs> = {
-    createInitialInputs: () => {
-        return {
-            greetingPrefix: "Hello"
-        };
-    },
-    editInputsForm: (inputs, { section, text }) => [
-        section({
-            title: "Greeting",
-            content: [
-                text({
-                    input: inputs.greetingPrefix,
-                    label: "Greeting Prefix",
-                    helpText: "The beginning of the greeting",
-                }),
-            ],
-        }),
-    ],
-};
-
-export default HelloWorldTargetUI;
-```
+https://github.com/OctopusDeploy/step-package-template/blob/eca604f5111c817a082855a9a53002888748e69b/targets/hello-world-target/src/ui.ts
 
 ### `validation.ts`
+
+[Documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/Validation.md)
 
 Form validation is performed by the function exported by the `validate.ts` file. This function returns an array of `ValueValidator` objects, and takes two parameters:
 1. The step inputs as [input paths](https://github.com/OctopusDeploy/Architecture/blob/main/Steps/Concepts/InputsAndOutputs.md#input-paths).
@@ -156,73 +137,19 @@ Form validation is performed by the function exported by the `validate.ts` file.
 
 Here is an example:
 
-```typescript
-import { ValidateInputs } from "@octopusdeploy/step-api";
-import HelloWorldTargetInputs from "./inputs";
+https://github.com/OctopusDeploy/step-package-template/blob/eca604f5111c817a082855a9a53002888748e69b/targets/hello-world-target/src/validation.ts
 
-const validateInputs: ValidateInputs<HelloWorldTargetInputs> = (inputs, validate) => {
-    return [
-        validate(inputs.greetingPrefix, (greeting) => {
-            if (greeting === "") return "Greeting can not be empty";
-        }),
-    ];
-};
-export default validateInputs;
-```
+### Adding a new step
 
-## Creating a new step
+Adding a new step closely resembles adding a new deployment target. New files for the step are added under `steps/<step-name>/src`. The same files are required, and the same conventions are followed.
 
-Creating a new step involves creating the following files under the `steps/<step-name>/src` directory. In the case of this sample step package, we'll create them under `steps/hello-world/src`:
-
-* `metadata.json`
-* `inputs.ts`
-* `executor.js`
-* `ui.ts`
-* `validation.ts`
+The key differences for steps are outlined below. Anything not outlined is assumed to be the same as defined for adding a new target.
 
 ### `metadata.json`
 
-The `metadata.json` provides details about the step. A sample is shown below:
+Step metadata differs slightly from target metadata.
 
-```json
-{
-  "schemaVersion": "1.0.0",
-  "version": "0.0.0",
-  "type": "step",
-  "id": "hello-world-upload",
-  "name": "Hello World",
-  "description": "An example step",
-  "categories": [
-    "BuiltInStep"
-  ],
-  "canRunOnDeploymentTarget": false,
-  "launcher": "node"
-}
-```
-
-The following fields make up this file:
-
-* `schemaVersion` is the version of the metadata file. `1.0.0` is the only version available.
-* `version` is the version of the step. Versioning is covered in detail [here](https://github.com/OctopusDeploy/Architecture/blob/main/Steps/Concepts/Versioning.md).
-* `type` defines the type of resource tobe created. Valid values are `step` and `deployment-target`.
-* `id` is the resource ID.
-* `name` is the name of the step displayed by the Octopus web UI.
-* `description` is the description of the step displayed by the Octopus UI.
-* `categories` is an array containing one or more step categories display by the Octopus UI where the step will be listed.
-* `canRunOnDeploymentTarget` can be set to `true` to run the step on a target accessible via a tentacle, or `false` to be run on a worker.
-* `launcher` defines how the step is executed. A value of `node` means the step is executed by Node.js.
-
-### `inputs.ts`
-
-This file performs the same function as it does when defining a new target.
-
-An example is shown below exposing a single string field:
-
-```typescript
-export default interface HelloWorldStepInputs {
-  name: string;
-}
-```
+Please review the [step package documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/StepPackages.md#metadata) to understand the differences.
 
 ### `executor.ts`
 
@@ -232,91 +159,51 @@ Unlike the function returned by the target `executor.ts` function, a step `execu
 
 For this example we print the greeting defined in the target and the name defined on the step to the output log:
 
-```typescript
-import HelloWorldStepInputs from "./inputs";
-import {ExecutionInputs, Handler, OctopusContext, TargetInputs} from "@octopusdeploy/step-api";
-import HelloWorldTargetInputs from "../../targets/hello-world-target/inputs";
-
-const HelloWorldStepExecutor: Handler<HelloWorldStepInputs, HelloWorldTargetInputs> = async (
-    inputs: ExecutionInputs<HelloWorldStepInputs>,
-    target: TargetInputs<HelloWorldTargetInputs>,
-    context: OctopusContext
-) => {
-    context.print(target.greetingPrefix + " " + inputs.name);
-};
-
-export default HelloWorldStepExecutor;
-```
+https://github.com/OctopusDeploy/step-package-template/blob/eca604f5111c817a082855a9a53002888748e69b/steps/hello-world/src/executor.ts
 
 ### `ui.ts`
 
 The step form displayed by the Octopus web UI is defined much the same as it was with the target. There are some subtle differences though: 
-* It implements the `StepUI` type. 
-* The first parameter to the `createInitialInputs` function can be an instance of `InitialInputFactories`, which provides the ability to create blank package references.
-* The second parameter to the `editInputsForm` function is an instance of `AvailableStepComponents`, which exposes a different widget set.
+* It implements the `StepUI` type.
+* The parameter to the `editInputsForm` function is an instance of `AvailableStepComponents`, which exposes a different widget set.
 
 Here we define the initial value of the `name` input to be a blank string, and build the form with a single `text` input:
 
-```typescript
-import { StepUI } from "@octopusdeploy/step-api";
-import HelloWorldStepInputs from "./inputs";
-
-export const HelloWorldStepUI: StepUI<HelloWorldStepInputs> = {
-  createInitialInputs: () => {
-    return {
-      name: ""
-    };
-  },
-  editInputsForm: (inputs, { text }) => {
-    return [
-      text({
-        input: inputs.name,
-        label: "Greeting Name",
-        helpText: `The name of the person to greet.`,
-      }),
-
-    ];
-  },
-};
-
-export default HelloWorldStepUI;
-```
-
-### `validation.ts`
-
-Step form validation is identical to target form validation:
-
-```typescript
-import { ValidateInputs } from "@octopusdeploy/step-api";
-import HelloWorldStepInputs from "./inputs";
-
-const validateInputs: ValidateInputs<HelloWorldStepInputs> = (inputs, validate) => {
-  return [
-    validate(inputs.name, (name) => {
-      if (name === "") return "Name can not be empty";
-    }),
-  ];
-};
-export default validateInputs;
-```
+https://github.com/OctopusDeploy/step-package-template/blob/eca604f5111c817a082855a9a53002888748e69b/steps/hello-world/src/ui.ts
 
 ## Building the step package
 
 To build step packages, run the following commands:
 
-1. `npm install`
-2. `npm run build`
-3. `npm run test`
+1. `pnpm install`
+2. `pnpm run build`
+3. `pnpm run test`
+4. `pnpm run local:publish`
 
-The step package files are saved under the `dist/steps` folder. Add the contents of this folder to a ZIP file and copy it to the `steps` folder in Octopus.
+The step package files are saved under the `.\dist` folder. Copy the contents of this folder to the `steps` folder in Octopus.
 
 If you are testing with a locally built copy of Octopus, place the ZIP file in `\source\Octopus.Server\bin\net5.0\steps`.
 
-## GitHub workflows
+## Releasing the step package
 
-This repository contains a [GitHub workflow](https://github.com/OctopusSamples/StepPackage-HelloWorld/blob/main/.github/workflows/main.yml) that builds and tests the code, packages the resulting files, and creates a release with the step package archive.
+This repository uses [Changesets](https://github.com/atlassian/changesets) for release management.
 
-Use git tags to indicate releases, while commits to the `main` branch create `alpha` releases.
+This means, that any changes that you want to _release_, and thus require a release note and version bump, should be accompanied by a change set.
+
+Some changes may not require a release - these can be contributed via PR without a changeset.
+
+In order to add a change set, run `npx changeset add` which will:
+
+- Ask you what sort of version bump is required for this change
+- Prompt you to supply release notes for the change
+
+These details will automatically be captured in a markdown file under the `.changesets` folder within your PR.
+
+Once your PR is merged, the build will use the [Changesets Github Action](https://github.com/changesets/action) to create a separate _Version Packages_ PR which includes the merged release notes within the appropriate `CHANGELOG.md` files, and applied version bumps within the appropriate `package.json` files, which you will need to review.
+
+Upon merging the _Version Packages_ PR, the repository will be tagged with the new version, and a Github Release will be created for each changed step package.
+
+**Note:** for the time being, to access the newly-versioned package, you will need to retrieve it from the build artifacts produced after the `Version Packages` PR is merged. In the future, this will be published somewhere central.
 
 ## Using the step package
 
