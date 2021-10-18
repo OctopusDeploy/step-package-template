@@ -23,7 +23,7 @@ To learn more about step packages, consult the [step package documentation](http
 Step package repositories use a _monorepo_ structure, which supports:
 - Independent versioning and change log management for steps and deployment targets within a single repository
 - Simpler consumption patterns for target inputs within steps
-- Simpler change propagation across multiple versions of steps
+- Simpler change propagation across multiple versions of steps. For an example of a step with multiple versions and associated migration definitions, see the [Migration Sample](https://github.com/octopusdeploy/step-package-migration-sample)
 
 A single step package repository is modelled on a volatility boundary - it groups together a set of steps and targets we reasonably expect to change together.
 
@@ -33,7 +33,7 @@ The preferred directory structure for a step package mono-repo is shown below:
 
 * `\`
   * `steps` - A directory containing one or more step definitions.
-    * `<step-name>` - A directory containing the definition of a step. There may be many of these directories defining many steps or versions of a step within a single step package.
+    * `<step-name>` - A directory containing the definition of a step. There may be many of these directories defining many steps or versions of a step within a single step package. 
       * `src` - The parent directory containing the step code and assets.
         * `__tests__` - The directory containing step tests.
           * `executor.spec.ts` - Tests validating the logic in the `executor.ts` file.
@@ -48,7 +48,7 @@ The preferred directory structure for a step package mono-repo is shown below:
       * `tsconfig.json` - The [TypeScript compiler options file](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) for this step.
   * `targets` - A directory containing one or more deployment target definitions.
     * `<target-name>` - A directory containing the definition of a deployment target. There may be many of these directories defining many targets within a single step package. The structure of the contents for a target is identical to that of a step - see `<step-name>`.
-      * **NOTE**: Versioning of deployment targets beyond minor and patch bumps of the published `1.0` verison is not supported.
+      * **NOTE**: Versioning of deployment targets beyond minor and patch bumps of the published `1.0` version is not supported.
   * `.eslintignore` - The [ESLint ignore file](https://eslint.org/docs/user-guide/configuring/ignoring-code#the-eslintignore-file).
   * `.eslintrc.js` - The [ESLint configuration file](https://eslint.org/docs/user-guide/configuring/).
   * `.gitignore` - The [git ignore file](https://git-scm.com/docs/gitignore).
