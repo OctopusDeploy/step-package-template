@@ -133,7 +133,7 @@ https://github.com/OctopusDeploy/step-package-template/blob/eca604f5111c817a0828
 [Documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/Validation.md)
 
 Form validation is performed by the function exported by the `validate.ts` file. This function returns an array of `ValueValidator` objects, and takes two parameters:
-1. The step inputs as [input paths](https://github.com/OctopusDeploy/Architecture/blob/main/Steps/Concepts/InputsAndOutputs.md#input-paths).
+1. The target inputs as [input paths](https://github.com/OctopusDeploy/Architecture/blob/main/Steps/Concepts/InputsAndOutputs.md#input-paths).
 2. A validation function that returns a `ValueValidator` and takes two parameters:
    1. An input path.
    2. A function returning a string containing the error code (or returns nothing if there is no validation error) and takes the input value (retrieved from the input path) as the first parameter.
