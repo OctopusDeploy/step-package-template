@@ -86,6 +86,8 @@ https://github.com/OctopusDeploy/step-package-template/blob/eca604f5111c817a0828
 
 The expected contents of `metadata.json` are documented within the [step package documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/StepPackages.md#metadata)
 
+**TODO:** Discuss alignment of ID within `metadata.json` and `package.json`
+
 ### `inputs.ts`
 
 [Documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/Inputs.md)
@@ -103,6 +105,7 @@ export default interface HelloWorldTargetInputs {
 ### `executor.ts`
 
 [Documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/Executor.md)
+
 Targets perform a health check to validate their inputs and check the state of the system they represent. This health check is performed by the function exported by the `executor.ts` file.
 
 The example below prints some text to the log during a health check, and will always pass, meaning the target is always healthy:
