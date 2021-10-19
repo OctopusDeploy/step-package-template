@@ -1,4 +1,4 @@
-# @octopusdeploy/hello-world
+# hello-world
 
 ## 1.0.0
 ### Major Changes

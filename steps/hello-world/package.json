@@ -1,5 +1,5 @@
 {
-  "name": "@octopusdeploy/hello-world",
+  "name": "hello-world",
   "version": "1.0.0",
   "main": "dist/inputs.js",
   "scripts": {
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "tslib": "^2.3.0",
-    "@octopusdeploy/hello-world-target": "1.0.0"
+    "hello-world-target": "1.0.0"
   },
   "devDependencies": {
     "@changesets/cli": "^2.16.0",
