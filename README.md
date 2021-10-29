@@ -17,8 +17,15 @@ Building this template will result in two step packages being produced:
 - `hello-world-upload.x.y.z.zip`
 
 Any step packages built from this template will be compatible with Octopus Server v2021.3 and newer.
+_Note: You don't have to use the template but you will need to set everything up manually, currently we have no guide on how this do this._
 
 To learn more about step packages, consult the [step package documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/StepPackages.md).
+
+## How to use this template
+
+1. Click the "Use this template" above this will allow you to create a new GitHub repository using this template.
+2. Clone the repository to your machine.
+3. Use the steps listed in *Building the step package* section below to build and deploy the steps.
 
 ## Project structure
 
@@ -30,6 +37,8 @@ Step package repositories use a _monorepo_ structure, which supports:
 A single step package repository is modelled on a volatility boundary - it groups together a set of steps and targets we reasonably expect to change together.
 
 We strongly recommend the use of [PNPM workspaces](https://pnpm.io/workspaces) and [Changesets](https://github.com/atlassian/changesets) for package, build, and release management within the monorepo. This template pre-configures these tools for you.
+
+> Note: With the use of this template you will need PNPM to be installed globally on you machine [see docs here](https://pnpm.io/installation)
 
 The preferred directory structure for a step package mono-repo is shown below:
 
@@ -60,7 +69,6 @@ The preferred directory structure for a step package mono-repo is shown below:
   * `pnpm-lock.json` - The [specific package versions](https://docs.npmjs.com/cli/v7/configuring-npm/package-lock-json) to be retrieved by PNPM.
   * `pnpm-workspace.json` - The [PNPM workspace definition file](https://pnpm.io/workspaces).
   * `tsconfig.json` - The [TypeScript compiler options file](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
-
 ## Creating a new step package
 
 Step packages have a [convention based structure](https://github.com/OctopusDeploy/step-api/blob/main/docs/StepPackages.md#conventions).
