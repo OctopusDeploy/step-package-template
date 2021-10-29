@@ -26,7 +26,7 @@ To learn more about step packages, consult the [step package documentation](http
 
 1. Click the "Use this template" button above to create a new GitHub repository using this template.
 2. Clone the repository to your machine.
-3. Use the steps listed in *Building the step package* section below to build and deploy the step package.
+3. Use the steps listed in the *Building the step package* section below to build and deploy the step package.
 
 ## Project structure
 
