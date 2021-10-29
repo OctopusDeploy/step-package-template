@@ -70,6 +70,7 @@ The preferred directory structure for a step package mono-repo is shown below:
   * `pnpm-lock.json` - The [specific package versions](https://docs.npmjs.com/cli/v7/configuring-npm/package-lock-json) to be retrieved by PNPM.
   * `pnpm-workspace.json` - The [PNPM workspace definition file](https://pnpm.io/workspaces).
   * `tsconfig.json` - The [TypeScript compiler options file](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
+
 ## Creating a new step package
 
 Step packages have a [convention based structure](https://github.com/OctopusDeploy/step-api/blob/main/docs/StepPackages.md#conventions).
