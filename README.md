@@ -24,7 +24,7 @@ To learn more about step packages, consult the [step package documentation](http
 
 ## How to use this template
 
-1. Click the "Use this template" above this will allow you to create a new GitHub repository using this template.
+1. Click the "Use this template" button above to create a new GitHub repository using this template.
 2. Clone the repository to your machine.
 3. Use the steps listed in *Building the step package* section below to build and deploy the step package.
 
@@ -39,7 +39,7 @@ A single step package repository is modelled on a volatility boundary - it group
 
 We strongly recommend the use of [PNPM workspaces](https://pnpm.io/workspaces) and [Changesets](https://github.com/atlassian/changesets) for package, build, and release management within the monorepo. This template pre-configures these tools for you.
 
-> Note: With the use of this template you will need PNPM to be installed globally on you machine [see docs here](https://pnpm.io/installation)
+> Note: You will need PNPM to be installed globally on you machine [see docs here](https://pnpm.io/installation)
 
 The preferred directory structure for a step package mono-repo is shown below:
 
