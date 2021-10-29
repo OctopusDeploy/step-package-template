@@ -17,7 +17,8 @@ Building this template will result in two step packages being produced:
 - `hello-world-upload.x.y.z.zip`
 
 Any step packages built from this template will be compatible with Octopus Server v2021.3 and newer.
-_Note: You don't have to use the template but you will need to set everything up manually, currently we have no guide on how this do this._
+
+> Note: You don't have to use the template but you will need to set everything up manually, currently we have no guide on how this do this.
 
 To learn more about step packages, consult the [step package documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/StepPackages.md).
 
