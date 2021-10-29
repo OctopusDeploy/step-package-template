@@ -18,7 +18,7 @@ Building this template will result in two step packages being produced:
 
 Any step packages built from this template will be compatible with Octopus Server v2021.3 and newer.
 
-> Note: You don't have to use the template but you will need to set everything up manually, currently we have no guide on how this do this.
+> Note: You don't have to use the template, but if you don't you will need to set everything up manually, and currently we have no guide on how to do this.
 
 To learn more about step packages, consult the [step package documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/StepPackages.md).
 
@@ -26,7 +26,7 @@ To learn more about step packages, consult the [step package documentation](http
 
 1. Click the "Use this template" above this will allow you to create a new GitHub repository using this template.
 2. Clone the repository to your machine.
-3. Use the steps listed in *Building the step package* section below to build and deploy the steps.
+3. Use the steps listed in *Building the step package* section below to build and deploy the step package.
 
 ## Project structure
 
