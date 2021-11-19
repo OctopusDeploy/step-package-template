@@ -37,7 +37,7 @@ importers:
     specifiers:
       '@changesets/cli': 2.18.0
       '@octopusdeploy/step-api': 1.0.0
-      '@octopusdeploy/step-package-cli': 1.0.0
+      '@octopusdeploy/step-package-cli': 1.0.1
       '@types/jest': 26.0.24
       '@types/node': 14.17.34
       '@typescript-eslint/eslint-plugin': 4.33.0
@@ -64,7 +64,7 @@ importers:
     devDependencies:
       '@changesets/cli': 2.18.0
       '@octopusdeploy/step-api': 1.0.0
-      '@octopusdeploy/step-package-cli': 1.0.0
+      '@octopusdeploy/step-package-cli': 1.0.1
       '@types/jest': 26.0.24
       '@types/node': 14.17.34
       '@typescript-eslint/eslint-plugin': 4.33.0_d00b196ac5df1286ea7e45797bebddbc
@@ -88,7 +88,7 @@ importers:
     specifiers:
       '@changesets/cli': 2.18.0
       '@octopusdeploy/step-api': 1.0.0
-      '@octopusdeploy/step-package-cli': 1.0.0
+      '@octopusdeploy/step-package-cli': 1.0.1
       '@types/jest': 26.0.24
       '@types/node': 14.17.34
       '@typescript-eslint/eslint-plugin': 4.33.0
@@ -113,7 +113,7 @@ importers:
     devDependencies:
       '@changesets/cli': 2.18.0
       '@octopusdeploy/step-api': 1.0.0
-      '@octopusdeploy/step-package-cli': 1.0.0
+      '@octopusdeploy/step-package-cli': 1.0.1
       '@types/jest': 26.0.24
       '@types/node': 14.17.34
       '@typescript-eslint/eslint-plugin': 4.33.0_d00b196ac5df1286ea7e45797bebddbc
@@ -1840,8 +1840,8 @@ packages:
       - typescript
     dev: true
 
-  /@octopusdeploy/step-package-cli/1.0.0:
-    resolution: {integrity: sha512-4M1R6yr2bUxiNUUmEP7M2wxu8MAavaYlyM6SFDIGeWGPxTLVF8Vplwl1cmJ8U2jgr61OUcZAFfD0TdL5UqIBKA==}
+  /@octopusdeploy/step-package-cli/1.0.1:
+    resolution: {integrity: sha512-zfNk7vNI19mUf9edx4ryG8FtWFyhVhqQ5ANiOYRyi83pc4HDp5CxEkST4v997eev7IgpSBmAViCInDyPFLEenQ==}
     hasBin: true
     dependencies:
       '@actions/exec': 1.1.0
