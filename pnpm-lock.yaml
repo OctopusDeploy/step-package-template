@@ -37,7 +37,7 @@ importers:
     specifiers:
       '@changesets/cli': 2.18.0
       '@octopusdeploy/step-api': 1.1.1
-      '@octopusdeploy/step-package-cli': 1.0.1
+      '@octopusdeploy/step-package-cli': 1.1.0
       '@types/jest': 26.0.24
       '@types/node': 14.17.34
       '@typescript-eslint/eslint-plugin': 4.33.0
@@ -64,7 +64,7 @@ importers:
     devDependencies:
       '@changesets/cli': 2.18.0
       '@octopusdeploy/step-api': 1.1.1
-      '@octopusdeploy/step-package-cli': 1.0.1
+      '@octopusdeploy/step-package-cli': 1.1.0
       '@types/jest': 26.0.24
       '@types/node': 14.17.34
       '@typescript-eslint/eslint-plugin': 4.33.0_d00b196ac5df1286ea7e45797bebddbc
@@ -88,7 +88,7 @@ importers:
     specifiers:
       '@changesets/cli': 2.18.0
       '@octopusdeploy/step-api': 1.1.1
-      '@octopusdeploy/step-package-cli': 1.0.1
+      '@octopusdeploy/step-package-cli': 1.1.0
       '@types/jest': 26.0.24
       '@types/node': 14.17.34
       '@typescript-eslint/eslint-plugin': 4.33.0
@@ -113,7 +113,7 @@ importers:
     devDependencies:
       '@changesets/cli': 2.18.0
       '@octopusdeploy/step-api': 1.1.1
-      '@octopusdeploy/step-package-cli': 1.0.1
+      '@octopusdeploy/step-package-cli': 1.1.0
       '@types/jest': 26.0.24
       '@types/node': 14.17.34
       '@typescript-eslint/eslint-plugin': 4.33.0_d00b196ac5df1286ea7e45797bebddbc
@@ -134,16 +134,6 @@ importers:
       typescript: 4.5.2
 
 packages:
-
-  /@actions/exec/1.1.0:
-    resolution: {integrity: sha512-LImpN9AY0J1R1mEYJjVJfSZWU4zYOlEcwSTgPve1rFQqK5AwrEs6uWW5Rv70gbDIQIAUwI86z6B+9mPK4w9Sbg==}
-    dependencies:
-      '@actions/io': 1.1.1
-    dev: true
-
-  /@actions/io/1.1.1:
-    resolution: {integrity: sha512-Qi4JoKXjmE0O67wAOH6y0n26QXhMKMFo7GD/4IXNVcrtLjUlGjGuVys6pQgwF3ArfGTQu0XpqaNr0YhED2RaRA==}
-    dev: true
 
   /@babel/code-frame/7.12.11:
     resolution: {integrity: sha512-Zt1yodBx1UcyiePMSkWnU4hPqhwq7hGi2nFL1LeA3EUl+q2LQx16MISgJ0+z7dnmgvP9QtIleuETGOiOH1RcIw==}
@@ -1824,47 +1814,45 @@ packages:
       '@octopusdeploy/step-inputs': 1.0.1
     dev: true
 
-  /@octopusdeploy/step-package-build/1.0.0_typescript@4.5.2:
-    resolution: {integrity: sha512-++c57JADCgMEHo/tNhAhBPUzh5461Y0GOTlEfHgHtRnuBQJ1JwprjTPTgLQbTSjYGNgwPVhhARYbwoOGEdqJlA==}
+  /@octopusdeploy/step-package-build/1.0.1_typescript@4.4.4:
+    resolution: {integrity: sha512-sBdTV8YAIh+vB7ICFQVj2KglIUnaltt7rjjv9lvqLcFYl5gQtATfAStR1w4DvwLE9s4hxaNpK1mFMxyiDq5aFQ==}
     dependencies:
-      '@octopusdeploy/step-runtime-inputs': 1.0.0
-      '@rollup/plugin-commonjs': 19.0.2_rollup@2.57.0
-      '@rollup/plugin-json': 4.1.0_rollup@2.57.0
-      '@rollup/plugin-node-resolve': 13.0.5_rollup@2.57.0
-      ajv: 8.6.3
+      '@octopusdeploy/step-runtime-inputs': 1.0.1
+      '@rollup/plugin-commonjs': 19.0.2_rollup@2.60.0
+      '@rollup/plugin-json': 4.1.0_rollup@2.60.0
+      '@rollup/plugin-node-resolve': 13.0.6_rollup@2.60.0
+      ajv: 8.8.2
       ajv-formats: 2.1.1
       archiver: 5.3.0
       glob: 7.2.0
       lodash-es: 4.17.21
-      rollup: 2.57.0
-      rollup-plugin-ts: 1.4.7_rollup@2.57.0+typescript@4.5.2
-      ts-json-schema-generator: 0.93.0
+      rollup: 2.60.0
+      rollup-plugin-ts: 1.4.7_rollup@2.60.0+typescript@4.4.4
+      ts-json-schema-generator: 0.97.0
     transitivePeerDependencies:
       - supports-color
       - typescript
     dev: true
 
-  /@octopusdeploy/step-package-cli/1.0.1:
-    resolution: {integrity: sha512-zfNk7vNI19mUf9edx4ryG8FtWFyhVhqQ5ANiOYRyi83pc4HDp5CxEkST4v997eev7IgpSBmAViCInDyPFLEenQ==}
+  /@octopusdeploy/step-package-cli/1.1.0:
+    resolution: {integrity: sha512-TtySpukhWGxPaW16YywDKbRcykLINWPN4/mJTLsiowBsBWOVjtY2H4wAtgEQgTIPS4WQ583sy1eOvAT6rOKbRw==}
     hasBin: true
     dependencies:
-      '@actions/exec': 1.1.0
-      '@octopusdeploy/step-package-build': 1.0.0_typescript@4.5.2
+      '@octopusdeploy/step-package-build': 1.0.1_typescript@4.4.4
       archiver: 5.3.0
       commander: 7.2.0
       cross-spawn: 7.0.3
       tslib: 2.3.1
-      typescript: 4.5.2
+      typescript: 4.4.4
       winston: 3.3.3
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@octopusdeploy/step-runtime-inputs/1.0.0:
-    resolution: {integrity: sha512-98CetWJivDRxoCA5hB8PK2v2p0INFKI5xdxHSlGeuAq7Wze6WNiWCJY9odhelgTzUPCRu/kg4U3EAxzin18aAw==}
-    engines: {node: '>=10'}
+  /@octopusdeploy/step-runtime-inputs/1.0.1:
+    resolution: {integrity: sha512-ONKIgDrx1x/tCrc2LcvA3e69PI+SNOm7VpG2d8AH898t2iCE+G/URzWbopFRNDNR58nP6ip1p7BLZJvtEmmGoA==}
     dependencies:
-      '@octopusdeploy/step-inputs': 1.0.0
+      '@octopusdeploy/step-inputs': 1.0.1
     dev: true
 
   /@octopusdeploy/step-ui/1.1.1:
@@ -1879,47 +1867,47 @@ packages:
       '@octopusdeploy/step-inputs': 1.0.1
     dev: true
 
-  /@rollup/plugin-commonjs/19.0.2_rollup@2.57.0:
+  /@rollup/plugin-commonjs/19.0.2_rollup@2.60.0:
     resolution: {integrity: sha512-gBjarfqlC7qs0AutpRW/hrFNm+cd2/QKxhwyFa+srbg1oX7rDsEU3l+W7LAUhsAp9mPJMAkXDhLbQaVwEaE8bA==}
     engines: {node: '>= 8.0.0'}
     peerDependencies:
       rollup: ^2.38.3
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.57.0
+      '@rollup/pluginutils': 3.1.0_rollup@2.60.0
       commondir: 1.0.1
       estree-walker: 2.0.2
       glob: 7.2.0
       is-reference: 1.2.1
       magic-string: 0.25.7
       resolve: 1.20.0
-      rollup: 2.57.0
+      rollup: 2.60.0
     dev: true
 
-  /@rollup/plugin-json/4.1.0_rollup@2.57.0:
+  /@rollup/plugin-json/4.1.0_rollup@2.60.0:
     resolution: {integrity: sha512-yfLbTdNS6amI/2OpmbiBoW12vngr5NW2jCJVZSBEz+H5KfUJZ2M7sDjk0U6GOOdCWFVScShte29o9NezJ53TPw==}
     peerDependencies:
       rollup: ^1.20.0 || ^2.0.0
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.57.0
-      rollup: 2.57.0
+      '@rollup/pluginutils': 3.1.0_rollup@2.60.0
+      rollup: 2.60.0
     dev: true
 
-  /@rollup/plugin-node-resolve/13.0.5_rollup@2.57.0:
-    resolution: {integrity: sha512-mVaw6uxtvuGx/XCI4qBQXsDZJUfyx5vp39iE0J/7Hd6wDhEbjHr6aES7Nr9yWbuE0BY+oKp6N7Bq6jX5NCGNmQ==}
+  /@rollup/plugin-node-resolve/13.0.6_rollup@2.60.0:
+    resolution: {integrity: sha512-sFsPDMPd4gMqnh2gS0uIxELnoRUp5kBl5knxD2EO0778G1oOJv4G1vyT2cpWz75OU2jDVcXhjVUuTAczGyFNKA==}
     engines: {node: '>= 10.0.0'}
     peerDependencies:
       rollup: ^2.42.0
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.57.0
+      '@rollup/pluginutils': 3.1.0_rollup@2.60.0
       '@types/resolve': 1.17.1
       builtin-modules: 3.2.0
       deepmerge: 4.2.2
       is-module: 1.0.0
       resolve: 1.20.0
-      rollup: 2.57.0
+      rollup: 2.60.0
     dev: true
 
-  /@rollup/pluginutils/3.1.0_rollup@2.57.0:
+  /@rollup/pluginutils/3.1.0_rollup@2.60.0:
     resolution: {integrity: sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==}
     engines: {node: '>= 8.0.0'}
     peerDependencies:
@@ -1928,7 +1916,7 @@ packages:
       '@types/estree': 0.0.39
       estree-walker: 1.0.1
       picomatch: 2.3.0
-      rollup: 2.57.0
+      rollup: 2.60.0
     dev: true
 
   /@rollup/pluginutils/4.1.1:
@@ -2333,7 +2321,7 @@ packages:
       ajv:
         optional: true
     dependencies:
-      ajv: 8.6.3
+      ajv: 8.8.2
     dev: true
 
   /ajv/6.12.6:
@@ -2347,6 +2335,15 @@ packages:
 
   /ajv/8.6.3:
     resolution: {integrity: sha512-SMJOdDP6LqTkD0Uq8qLi+gMwSt0imXLSV080qFVwJCpH9U6Mb+SUGHAXM0KNbcBPguytWyvFxcHgMLe2D2XSpw==}
+    dependencies:
+      fast-deep-equal: 3.1.3
+      json-schema-traverse: 1.0.0
+      require-from-string: 2.0.2
+      uri-js: 4.4.1
+    dev: true
+
+  /ajv/8.8.2:
+    resolution: {integrity: sha512-x9VuX+R/jcFj1DHo/fCp99esgGDWiHENrKxaCENuCxpoMCmAt/COCGVDwA7kleEpEzJjDnvh3yGoOuLu0Dtllw==}
     dependencies:
       fast-deep-equal: 3.1.3
       json-schema-traverse: 1.0.0
@@ -3000,18 +2997,23 @@ packages:
     engines: {node: '>= 10'}
     dev: true
 
+  /commander/8.3.0:
+    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
+    engines: {node: '>= 12'}
+    dev: true
+
   /commondir/1.0.1:
     resolution: {integrity: sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs=}
     dev: true
 
-  /compatfactory/0.0.9_typescript@4.5.2:
+  /compatfactory/0.0.9_typescript@4.4.4:
     resolution: {integrity: sha512-WzoRZSBtsC5TT2J+MZNlo4Qpssf7ofSaRJUT3hN8nNeGilKOnTjR707k+hUU7QhVbyg3cmfWJlabTfMZgZtvEA==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       typescript: '>=3.x || >= 4.x'
     dependencies:
       helpertypes: 0.0.4
-      typescript: 4.5.2
+      typescript: 4.4.4
     dev: true
 
   /component-emitter/1.3.0:
@@ -5193,12 +5195,6 @@ packages:
     resolution: {integrity: sha1-nbe1lJatPzz+8wp1FC0tkwrXJlE=}
     dev: true
 
-  /json-stable-stringify/1.0.1:
-    resolution: {integrity: sha1-mnWdOcXy/1A/1TAGRu1EX4jE+a8=}
-    dependencies:
-      jsonify: 0.0.0
-    dev: true
-
   /json5/1.0.1:
     resolution: {integrity: sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==}
     hasBin: true
@@ -5218,10 +5214,6 @@ packages:
     resolution: {integrity: sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=}
     optionalDependencies:
       graceful-fs: 4.2.8
-    dev: true
-
-  /jsonify/0.0.0:
-    resolution: {integrity: sha1-LHS27kHZPKUbe1qu6PUDYx0lKnM=}
     dev: true
 
   /kind-of/3.2.2:
@@ -6256,7 +6248,7 @@ packages:
       glob: 7.2.0
     dev: true
 
-  /rollup-plugin-ts/1.4.7_rollup@2.57.0+typescript@4.5.2:
+  /rollup-plugin-ts/1.4.7_rollup@2.60.0+typescript@4.4.4:
     resolution: {integrity: sha512-Qvmu8GVQ1+F4wcfr+S9iWVcG2PCLZMZ85ZpCZm5zTFmX2Z7hLbXePOWuReWO+7/fS3F1ysUzj/smFYQd026Juw==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
@@ -6279,19 +6271,19 @@ packages:
       browserslist: 4.17.1
       browserslist-generator: 1.0.64
       chalk: 4.1.2
-      compatfactory: 0.0.9_typescript@4.5.2
+      compatfactory: 0.0.9_typescript@4.4.4
       crosspath: 0.0.9
       magic-string: 0.25.7
-      rollup: 2.57.0
-      ts-clone-node: 0.3.28_typescript@4.5.2
+      rollup: 2.60.0
+      ts-clone-node: 0.3.28_typescript@4.4.4
       tslib: 2.3.1
-      typescript: 4.5.2
+      typescript: 4.4.4
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /rollup/2.57.0:
-    resolution: {integrity: sha512-bKQIh1rWKofRee6mv8SrF2HdP6pea5QkwBZSMImJysFj39gQuiV8MEPBjXOCpzk3wSYp63M2v2wkWBmFC8O/rg==}
+  /rollup/2.60.0:
+    resolution: {integrity: sha512-cHdv9GWd58v58rdseC8e8XIaPUo8a9cgZpnCMMDGZFDZKEODOiPPEQFXLriWr/TjXzhPPmG5bkAztPsOARIcGQ==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
@@ -6325,6 +6317,11 @@ packages:
 
   /safe-stable-stringify/1.1.1:
     resolution: {integrity: sha512-ERq4hUjKDbJfE4+XtZLFPCDi8Vb1JqaxAPTxWFLBx8XcAlf9Bda/ZJdVezs/NAfsMQScyIlUMx+Yeu7P7rx5jw==}
+    dev: true
+
+  /safe-stable-stringify/2.2.0:
+    resolution: {integrity: sha512-C6AuMdYPuPV/P1leplHNu0lgc2LAElq/g3TdoksDCIVtBhr78o/CH03bt/9SKqugFbKU9CUjsNlCu0fjtQzQUw==}
+    engines: {node: '>=10'}
     dev: true
 
   /safer-buffer/2.1.2:
@@ -6876,14 +6873,14 @@ packages:
     resolution: {integrity: sha512-XrHUvV5HpdLmIj4uVMxHggLbFSZYIn7HEWsqePZcI50pco+MPqJ50wMGY794X7AOOhxOBAjbkqfAbEe/QMp2Lw==}
     dev: true
 
-  /ts-clone-node/0.3.28_typescript@4.5.2:
+  /ts-clone-node/0.3.28_typescript@4.4.4:
     resolution: {integrity: sha512-NHNYN/memcKz+9QDSO6+7r4QtlFQSV2lOWG1yZFWWO/3KrmRFdariuvgdwonvRMaKEuWScAk3ucPm3m312u4JQ==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       typescript: ^3.x || ^4.x
     dependencies:
-      compatfactory: 0.0.9_typescript@4.5.2
-      typescript: 4.5.2
+      compatfactory: 0.0.9_typescript@4.4.4
+      typescript: 4.4.4
     dev: true
 
   /ts-jest/26.5.6_jest@26.6.3+typescript@4.5.2:
@@ -6908,17 +6905,17 @@ packages:
       yargs-parser: 20.2.9
     dev: true
 
-  /ts-json-schema-generator/0.93.0:
-    resolution: {integrity: sha512-JYacSIgw4KqsOXF/zRSY4pE/v6jUk7aMDXhwK5MdopN0UeKH58TRZHrQADy9uxTf78jqUfFLzARQKNOb9H+jVQ==}
+  /ts-json-schema-generator/0.97.0:
+    resolution: {integrity: sha512-kPDq4ut8Mu1ZgSN7OeTXz+ueb1juFt2eyGd23lMr3WoN5sq4Xa9m22kDI46OlwapE0aF8e1pUesOFgDcATHcuA==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     dependencies:
       '@types/json-schema': 7.0.9
-      commander: 7.2.0
-      fast-json-stable-stringify: 2.1.0
+      commander: 8.3.0
       glob: 7.2.0
-      json-stable-stringify: 1.0.1
-      typescript: 4.3.5
+      json5: 2.2.0
+      safe-stable-stringify: 2.2.0
+      typescript: 4.4.4
     dev: true
 
   /tsconfig-paths/3.11.0:
@@ -7010,8 +7007,8 @@ packages:
       is-typedarray: 1.0.0
     dev: true
 
-  /typescript/4.3.5:
-    resolution: {integrity: sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==}
+  /typescript/4.4.4:
+    resolution: {integrity: sha512-DqGhF5IKoBl8WNf8C1gu8q0xZSInh9j1kJJMqT3a94w1JzVaBU4EXOSMrz9yDqMT0xt3selp83fuFMQ0uzv6qA==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
