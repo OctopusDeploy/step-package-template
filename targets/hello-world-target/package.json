@@ -5,7 +5,7 @@
   "scripts": {
     "step-package": "step-package-cli",
     "local:publish": "pnpm run step-package build -- -s ./src -p . -o ../../dist",
-    "ci:publish": "pnpm run step-package build -- -s ./src -p . -o ../../dist -t",
+    "ci:publish": "pnpm run step-package build -- -s ./src -p . -o ../../dist",
     "build": "tsc --declaration",
     "test": "jest --maxWorkers 1 --testTimeout 60000 --json --testPathIgnorePatterns \"dist\",\"node_modules\" --outputFile=./results.json --passWithNoTests"
   },

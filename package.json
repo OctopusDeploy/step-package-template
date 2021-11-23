@@ -5,7 +5,7 @@
     "preinstall": "npx only-allow pnpm",
     "build": "pnpm run build --filter={steps} --filter={targets}",
     "local:publish": "pnpm run local:publish --filter={steps} --filter={targets}",
-    "ci:publish": "pnpm run ci:publish --filter={steps} --filter={targets}",
+    "ci:publish": "pnpm run ci:publish --filter={steps} --filter={targets} && npx changeset tag",
     "test": "pnpm run test --filter={steps} --filter={targets}",
     "changeset": "changeset",
     "ci:version": "pnpm run changeset version && pnpm install --frozen-lockfile=false",
