@@ -1,6 +1,6 @@
 {
   "name": "hello-world-target",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/inputs.js",
   "scripts": {
     "step-package": "step-package-cli",

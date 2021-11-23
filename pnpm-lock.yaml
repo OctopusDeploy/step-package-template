@@ -48,7 +48,7 @@ importers:
       eslint-plugin-jest: 24.7.0
       eslint-plugin-prefer-arrow: 1.2.3
       eslint-plugin-prettier: 3.4.1
-      hello-world-target: 1.0.1
+      hello-world-target: 1.0.2
       jest: 26.6.3
       jest-cli: 26.6.3
       jest-expect-message: 1.0.2
@@ -1798,10 +1798,6 @@ packages:
     resolution: {integrity: sha512-KjN6NQvsovmHw5aNUc/LTKZs0BE8LLQosnaEFD8A8vE92ENnOYAYMymLG15vOgc0hce2TgBJMoV9aI/BRE9ORg==}
     dependencies:
       '@octopusdeploy/step-inputs': 1.0.1
-    dev: true
-
-  /@octopusdeploy/step-inputs/1.0.0:
-    resolution: {integrity: sha512-7lscADikkorwal+bs/iuUbSQ/ELQD5fBB1TRqMOS/8uaBR5fUxrKm2yMJnn78CapNiazseSm/i13ENUbnSmApA==}
     dev: true
 
   /@octopusdeploy/step-inputs/1.0.1:
