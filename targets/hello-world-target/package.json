@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "2.18.1",
-    "@octopusdeploy/step-api": "1.1.4",
+    "@octopusdeploy/step-api": "1.1.5",
     "@octopusdeploy/step-package-cli": "1.1.1",
     "@types/jest": "26.0.24",
     "@types/node": "14.17.34",
