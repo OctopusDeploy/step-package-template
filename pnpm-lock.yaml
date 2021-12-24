@@ -36,7 +36,7 @@ importers:
   steps/hello-world:
     specifiers:
       '@changesets/cli': 2.18.1
-      '@octopusdeploy/step-api': 1.1.5
+      '@octopusdeploy/step-api': 1.1.6
       '@octopusdeploy/step-package-cli': 1.1.1
       '@types/jest': 26.0.24
       '@types/node': 14.18.2
@@ -63,7 +63,7 @@ importers:
       tslib: 2.3.1
     devDependencies:
       '@changesets/cli': 2.18.1
-      '@octopusdeploy/step-api': 1.1.5
+      '@octopusdeploy/step-api': 1.1.6
       '@octopusdeploy/step-package-cli': 1.1.1
       '@types/jest': 26.0.24
       '@types/node': 14.18.2
@@ -87,7 +87,7 @@ importers:
   targets/hello-world-target:
     specifiers:
       '@changesets/cli': 2.18.1
-      '@octopusdeploy/step-api': 1.1.5
+      '@octopusdeploy/step-api': 1.1.6
       '@octopusdeploy/step-package-cli': 1.1.1
       '@types/jest': 26.0.24
       '@types/node': 14.18.2
@@ -112,7 +112,7 @@ importers:
       tslib: 2.3.1
     devDependencies:
       '@changesets/cli': 2.18.1
-      '@octopusdeploy/step-api': 1.1.5
+      '@octopusdeploy/step-api': 1.1.6
       '@octopusdeploy/step-package-cli': 1.1.1
       '@types/jest': 26.0.24
       '@types/node': 14.18.2
@@ -1785,13 +1785,13 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@octopusdeploy/step-api/1.1.5:
-    resolution: {integrity: sha512-TaSmWe/m7+7/oH/Xg1aSKINH2NlKrKJzWe3wmArr2YCA+Fx/HquUWE7aCLqIibO5uw44DGS61YZinsNrDsgeHg==}
+  /@octopusdeploy/step-api/1.1.6:
+    resolution: {integrity: sha512-OdewkJzDZCc05QJfikUwkKVYejpnurtE69FzFNqiUuxBK3NQC7aWJieUGqxnxN8W1PLv+RjoZvsq0s4LsrfE7g==}
     dependencies:
       '@octopusdeploy/step-executor': 1.0.4
       '@octopusdeploy/step-inputs': 1.0.4
       '@octopusdeploy/step-migration-api': 1.0.4
-      '@octopusdeploy/step-ui': 1.1.5
+      '@octopusdeploy/step-ui': 1.2.0
       '@octopusdeploy/step-validation-api': 1.0.4
     dev: true
 
@@ -1856,8 +1856,8 @@ packages:
       '@octopusdeploy/step-inputs': 1.0.2
     dev: true
 
-  /@octopusdeploy/step-ui/1.1.5:
-    resolution: {integrity: sha512-b/46hYqZuhCSSlwfceNI89CjSQfbPSqNgLpaQTQayJj62huUSeKsY5hoUH0sXWpvjL06WKe/NJqtVf3Y4+b1sw==}
+  /@octopusdeploy/step-ui/1.2.0:
+    resolution: {integrity: sha512-fqefEZm4b9vat+frtKk4474wBklbyLAiixfMXTZq5S64Q1dFU1xW41bdYaWaFBVcI33m5jLlhfHhkOAcYSpS2A==}
     dependencies:
       '@octopusdeploy/step-inputs': 1.0.4
     dev: true
