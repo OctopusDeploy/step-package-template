@@ -41,7 +41,7 @@
   "devDependencies": {
     "@changesets/cli": "2.18.1",
     "@octopusdeploy/step-api": "1.1.6",
-    "@octopusdeploy/step-package-cli": "1.2.4",
+    "@octopusdeploy/step-package-cli": "1.2.5",
     "@types/jest": "26.0.24",
     "@types/node": "14.18.5",
     "@typescript-eslint/eslint-plugin": "4.33.0",
