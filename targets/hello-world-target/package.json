@@ -37,6 +37,15 @@
       }
     ]
   },
+  "jest-junit": {
+    "outputDirectory": "test-results",
+    "outputName": "jest-junit.xml",
+    "ancestorSeparator": " › ",
+    "uniqueOutputName": "false",
+    "suiteNameTemplate": "{filepath}",
+    "classNameTemplate": "{classname}",
+    "titleTemplate": "{title}"
+  },
   "dependencies": {
     "tslib": "2.3.1"
   },
