@@ -22,4 +22,7 @@ module.exports = {
     timezone: "Australia/Brisbane",
     onboarding: false,
     requireConfig: false,
+    constraints: {
+        pnpm: "< 7.0.0",
+    },
 };

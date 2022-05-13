@@ -4,16 +4,10 @@ module.exports = {
         node: true,
         es6: true,
     },
-    extends: [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:jest/recommended",
-        "plugin:prettier/recommended",
-    ],
+    extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:jest/recommended", "plugin:prettier/recommended"],
     ignorePatterns: ["node_modules/", "dist/", "patches/", ".eslintrc.js", "esbuild.js"],
     parser: "@typescript-eslint/parser",
     parserOptions: {
-        project: "./tsconfig.json",
         sourceType: "module",
     },
     plugins: ["prefer-arrow", "@typescript-eslint", "jest", "prettier"],

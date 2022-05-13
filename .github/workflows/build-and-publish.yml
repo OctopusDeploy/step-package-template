@@ -1,0 +1,162 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+
+  schedule:
+    - cron: "0 20 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.32.12
+
+      - name: setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14.*"
+          cache: "pnpm"
+
+      # Why do we explicitly do pnpm install here and not use "run_install: true" above in the pnpm setup?
+      # We need to have pnpm setup before node in order to take advantage of the inbuilt caching that is available
+      # in that action, and running an install as part of pnpm setup won't use the cache, so we'll explicitly
+      # run it here after the cache
+      - run: pnpm install
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: Build
+        run: pnpm run ci:build
+
+      - name: Tests
+        run: pnpm run ci:test
+
+      - name: Upload test report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: Jest tests
+          path: ./**/test-results/*.xml
+          reporter: jest-junit
+
+  publish_nightly:
+    runs-on: ubuntu-latest
+    needs: build
+    name: Publish nightly packages
+    if: ${{ github.event_name == 'schedule' }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.32.12
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14.*"
+          cache: "pnpm"
+
+      # Why do we explicitly do pnpm install here and not use "run_install: true" above in the pnpm setup?
+      # We need to have pnpm setup before node in order to take advantage of the inbuilt caching that is available
+      # in that action, and running an install as part of pnpm setup won't use the cache, so we'll explicitly
+      # run it here after the cache
+      - run: pnpm install
+
+      - name: Build
+        run: pnpm run ci:build
+
+      - uses: OctopusDeploy/install-octopus-cli-action@v1.1.10
+        with:
+          version: latest
+
+      - name: Add pre-release changeset
+        id: add_pre_release_changeset
+        uses: OctopusDeploy/util-actions/add-changeset@add-changeset.0.1.1
+        with:
+          type: patch
+          summary: Changeset added for pre-release versioning
+          ignore: |
+            package.json
+            **/node_modules/**/*
+            **/__tests__/**/*
+
+      - name: Get branch names
+        id: branch_names
+        uses: tj-actions/branch-names@v4.5
+
+      - name: Replace invalid branch characters
+        uses: OctopusDeploy/util-actions/find-and-replace-all@find-and-replace-all.0.1.0
+        id: extract_branch
+        with:
+          source: ${{ steps.branch_names.outputs.current_branch }}
+          searchString: "/"
+          replace: "-"
+
+      - name: Version packages
+        run: pnpm changeset version -- --snapshot ${{ steps.extract_branch.outputs.value }}
+
+      - name: Publish
+        # Shift the additional arguments three times - Shift pass the top level ci:publish, past the step-specific "build" invocation, and add them to the step-specific "publishToOctopus" invocation
+        run: "pnpm run ci:publish -- -- -s ${{ secrets.OCTOPUS_URL }} -k ${{ secrets.DEPLOY_API_KEY }} --space ${{ secrets.OCTOPUS_SPACE }} --project ${{ secrets.OCTOPUS_PROJECT }} --deployTo Nightly --channel Nightly"
+
+  publish_release:
+    runs-on: ubuntu-latest
+    needs: build
+    name: Publish release packages
+    if: ${{ github.ref == 'refs/heads/main' && github.event_name != 'schedule' && startsWith(github.event.commits[0].message, 'Version Packages') }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.32.12
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14.*"
+          cache: "pnpm"
+
+      # Why do we explicitly do pnpm install here and not use "run_install: true" above in the pnpm setup?
+      # We need to have pnpm setup before node in order to take advantage of the inbuilt caching that is available
+      # in that action, and running an install as part of pnpm setup won't use the cache, so we'll explicitly
+      # run it here after the cache
+      - run: pnpm install
+
+      - name: Build
+        run: pnpm run ci:build
+
+      - uses: OctopusDeploy/install-octopus-cli-action@v1.1.10
+        with:
+          version: latest
+
+      - name: Publish Release
+        # Shift the additional arguments three times - Shift pass the top level ci:publish, past the step-specific "build" invocation, and add them to the step-specific "publishToOctopus" invocation
+        run: "pnpm run ci:publish -- -- -s ${{ secrets.OCTOPUS_URL }} -k ${{ secrets.DEPLOY_API_KEY }} --space ${{ secrets.OCTOPUS_SPACE }} --project ${{ secrets.OCTOPUS_PROJECT }} --deployTo PreProd --channel Release"
+
+      - name: Tag repo
+        uses: changesets/action@v1.3.0
+        with:
+          publish: npx changeset tag
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

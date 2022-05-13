@@ -2,46 +2,47 @@
   "name": "hello-world",
   "version": "0.0.0",
   "scripts": {
-    "step-package": "step-package-cli",
-    "preinstall": "npx only-allow pnpm",
-    "build": "pnpm run build --filter={steps} --filter={targets}",
-    "local:publish": "pnpm run local:publish --filter={steps} --filter={targets}",
-    "ci:package": "pnpm run ci:package --filter={steps} --filter={targets} && npx changeset tag",
-    "ci:publish": "pnpm run ci:package && pnpm run step-package publish",
-    "test": "pnpm run test --filter={steps} --filter={targets}",
+    "build": "pnpm run build --filter={steps} --filter={targets} --filter={common}",
     "changeset": "changeset",
+    "ci:build": "pnpm run ci:build --filter={steps} --filter={targets} --filter={common}",
+    "ci:publish": "pnpm run ci:publish --filter={steps} --filter={targets} --filter={common}",
+    "ci:test": "pnpm run ci:test --filter={steps} --filter={targets} --filter={common}",
     "ci:version": "pnpm run changeset version && pnpm install --frozen-lockfile=false",
     "lint:fix": "eslint . --fix",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "local:publish": "pnpm run local:publish --filter={steps} --filter={targets} --filter={common}",
+    "preinstall": "npx only-allow pnpm",
+    "step-package": "step-package-cli",
+    "test": "pnpm run test --filter={steps} --filter={targets} --filter={common}"
   },
   "dependencies": {
     "tslib": "2.3.1"
   },
   "devDependencies": {
     "@changesets/cli": "2.18.1",
-    "prettier": "2.4.1",
-    "typescript": "4.6.4",
+    "@octopusdeploy/step-package-cli": "1.7.0",
     "@types/node": "14.18.17",
     "@typescript-eslint/eslint-plugin": "4.33.0",
     "@typescript-eslint/parser": "4.33.0",
-    "eslint": "7.32.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jest": "24.7.0",
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-prettier": "3.4.1",
-    "@octopusdeploy/step-package-cli": "1.2.5"
+    "eslint": "7.32.0",
+    "prettier": "2.4.1",
+    "typescript": "4.6.4"
   },
-  "description": "",
+  "description": "A template for creating Octopus Deploy steps and targets using step packages",
   "main": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mcasperson/step-package-template.git"
+    "url": "git+https://github.com/OctopusDeploy/step-package-template.git"
   },
   "author": "Octopus Deploy",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mcasperson/step-package-template/issues"
+    "url": "https://github.com/OctopusDeploy/step-package-template/issues"
   },
-  "homepage": "https://github.com/mcasperson/step-package-template#readme"
+  "homepage": "https://github.com/OctopusDeploy/step-package-template#readme"
 }
