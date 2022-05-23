@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0.0",
-  "version": "1.0.0",
   "type": "step",
   "id": "hello-world",
   "name": "Hello World",
+  "deploymentTargetId": "hello-world-target",
   "description": "An example step",
   "categories": ["BuiltInStep"],
   "canRunOnDeploymentTarget": false,
   "launcher": "node",
-  "releaseNotesUrl": "https://github.com/OctopusDeploy/step-package-migration-spike/releases"
+  "releaseNotesUrl": "https://github.com/OctopusDeploy/step-package-template/releases"
 }
