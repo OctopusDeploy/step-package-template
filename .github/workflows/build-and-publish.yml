@@ -114,7 +114,7 @@ jobs:
 
       - name: Publish
         # Shift the additional arguments three times - Shift pass the top level ci:publish, past the step-specific "build" invocation, and add them to the step-specific "publishToOctopus" invocation
-        run: "pnpm run ci:publish -- -- -s ${{ secrets.OCTOPUS_URL }} -k ${{ secrets.DEPLOY_API_KEY }} --space ${{ secrets.OCTOPUS_SPACE }} --project ${{ secrets.OCTOPUS_PROJECT }} --deployTo Nightly --channel Nightly"
+        run: "pnpm run ci:publish -- -- -s ${{ secrets.OCTOPUS_URL }} -k ${{ secrets.OCTOPUS_API_KEY }} --space ${{ secrets.OCTOPUS_SPACE }} --project ${{ secrets.OCTOPUS_PROJECT }} --deployTo Nightly --channel Nightly"
 
   publish_release:
     runs-on: ubuntu-latest
@@ -154,7 +154,7 @@ jobs:
         # Shift the additional arguments three times - Shift pass the top level ci:publish, past the step-specific "build" invocation, and add them to the step-specific "publishToOctopus" invocation
         run: |
           echo 'The command below will publish release packages to the PreProd (and then manually to Production) feed. Change this step to remove the echo (and remove this extra line) when you are ready to publish your step.'
-          echo 'pnpm run ci:publish -- -- -s ${{ secrets.OCTOPUS_URL }} -k ${{ secrets.DEPLOY_API_KEY }} --space ${{ secrets.OCTOPUS_SPACE }} --project ${{ secrets.OCTOPUS_PROJECT }} --deployTo PreProd --channel Release'
+          echo 'pnpm run ci:publish -- -- -s ${{ secrets.OCTOPUS_URL }} -k ${{ secrets.OCTOPUS_API_KEY }} --space ${{ secrets.OCTOPUS_SPACE }} --project ${{ secrets.OCTOPUS_PROJECT }} --deployTo PreProd --channel Release'
 
       - name: Tag repo
         uses: changesets/action@v1.3.0
