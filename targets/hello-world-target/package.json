@@ -54,7 +54,7 @@
     "@octopusdeploy/step-api": "1.4.0",
     "@octopusdeploy/step-package-cli": "1.7.0",
     "@types/jest": "26.0.24",
-    "@types/node": "14.18.18",
+    "@types/node": "14.18.20",
     "@typescript-eslint/eslint-plugin": "4.33.0",
     "@typescript-eslint/parser": "4.33.0",
     "eslint": "7.32.0",
