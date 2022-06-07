@@ -12,6 +12,7 @@ module.exports = {
         ":automergeLinters",
         ":automergeTesters",
         ":automergeTypes",
+        "npm:unpublishSafe",
         "packages:eslint",
         "workarounds:typesNodeVersioning",
     ],
@@ -22,6 +23,7 @@ module.exports = {
     timezone: "Australia/Brisbane",
     onboarding: false,
     requireConfig: false,
+    prCreation: "not-pending",
     constraints: {
         pnpm: "< 7.0.0",
     },
