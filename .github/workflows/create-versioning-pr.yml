@@ -29,6 +29,12 @@ jobs:
           node-version: "14.*"
           cache: "pnpm"
 
+      # Why do we explicitly do pnpm install here and not use "run_install: true" above in the pnpm setup?
+      # We need to have pnpm setup before node in order to take advantage of the inbuilt caching that is available
+      # in that action, and running an install as part of pnpm setup won't use the cache, so we'll explicitly
+      # run it here after the cache
+      - run: pnpm install
+
       - uses: changesets/action@v1.3.0
         with:
           version: pnpm run ci:version
