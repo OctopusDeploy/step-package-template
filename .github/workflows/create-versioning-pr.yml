@@ -17,6 +17,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+          persist-credentials: false # Fixes issue identified in https://github.com/changesets/action/issues/70
 
       - uses: pnpm/action-setup@v2.0.1
         with:
