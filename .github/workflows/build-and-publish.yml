@@ -84,7 +84,7 @@ jobs:
 
       - uses: OctopusDeploy/install-octopus-cli-action@v1.1.10
         with:
-          version: latest
+          version: 7.4.3663
 
       - name: Add pre-release changeset
         id: add_pre_release_changeset
@@ -148,7 +148,7 @@ jobs:
 
       - uses: OctopusDeploy/install-octopus-cli-action@v1.1.10
         with:
-          version: latest
+          version: 7.4.3663
 
       - name: Publish Release
         # Shift the additional arguments three times - Shift pass the top level ci:publish, past the step-specific "build" invocation, and add them to the step-specific "publishToOctopus" invocation
@@ -162,7 +162,7 @@ jobs:
           publish: npx changeset tag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
+
   notify:
     runs-on: ubuntu-latest
     name: Slack - Notify on nightly build failure
