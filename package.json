@@ -2,18 +2,18 @@
   "name": "hello-world",
   "version": "0.0.0",
   "scripts": {
-    "build": "pnpm run build --filter={steps} --filter={targets} --filter={common}",
+    "build": "pnpm -r run build",
     "changeset": "changeset",
-    "ci:build": "pnpm run ci:build --filter={steps} --filter={targets} --filter={common}",
-    "ci:publish": "pnpm run ci:publish --filter={steps} --filter={targets} --filter={common}",
-    "ci:test": "pnpm run ci:test --filter={steps} --filter={targets} --filter={common}",
+    "ci:build": "pnpm -r run ci:build",
+    "ci:publish": "pnpm -r run ci:publish",
+    "ci:test": "pnpm -r run ci:test",
     "ci:version": "pnpm run changeset version && pnpm install --frozen-lockfile=false",
     "lint:fix": "eslint . --fix",
     "lint": "eslint .",
-    "local:publish": "pnpm run local:publish --filter={steps} --filter={targets} --filter={common}",
+    "local:publish": "pnpm -r run local:publish",
     "preinstall": "npx only-allow pnpm",
     "step-package": "step-package-cli",
-    "test": "pnpm run test --filter={steps} --filter={targets} --filter={common}"
+    "test": "pnpm -r run test"
   },
   "dependencies": {
     "tslib": "2.3.1"
