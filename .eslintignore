@@ -1,6 +1,7 @@
 node_modules/*
 **/package.json
 **/dist/**/*
+**/output/**/*
 patches/*
 github/*
 renovate-config.js

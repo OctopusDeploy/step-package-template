@@ -4,13 +4,19 @@ module.exports = {
         node: true,
         es6: true,
     },
-    extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:jest/recommended", "plugin:prettier/recommended"],
+    extends: [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:jest/recommended",
+        "plugin:prettier/recommended",
+        "plugin:@octopusdeploy/step-package/recommended",
+    ],
     ignorePatterns: ["node_modules/", "dist/", "patches/", ".eslintrc.js", "esbuild.js"],
     parser: "@typescript-eslint/parser",
     parserOptions: {
         sourceType: "module",
     },
-    plugins: ["prefer-arrow", "@typescript-eslint", "jest", "prettier"],
+    plugins: ["prefer-arrow", "@typescript-eslint", "jest", "prettier", "@octopusdeploy/step-package"],
     overrides: [
         {
             files: ["**/*.spec.ts"],
