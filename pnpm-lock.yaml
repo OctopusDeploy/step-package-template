@@ -5,7 +5,7 @@ importers:
   .:
     specifiers:
       '@changesets/cli': 2.18.1
-      '@octopusdeploy/eslint-plugin-step-package': 0.1.0
+      '@octopusdeploy/eslint-plugin-step-package': 0.1.1
       '@octopusdeploy/step-package-cli': 1.8.1
       '@types/node': 14.18.21
       '@typescript-eslint/eslint-plugin': 4.33.0
@@ -23,7 +23,7 @@ importers:
       tslib: 2.3.1
     devDependencies:
       '@changesets/cli': 2.18.1
-      '@octopusdeploy/eslint-plugin-step-package': 0.1.0_96b3e0b7debd8ab03d004476ef054e3a
+      '@octopusdeploy/eslint-plugin-step-package': 0.1.1_96b3e0b7debd8ab03d004476ef054e3a
       '@octopusdeploy/step-package-cli': 1.8.1
       '@types/node': 14.18.21
       '@typescript-eslint/eslint-plugin': 4.33.0_5e731fab734ce085fc02cd0ecce6c061
@@ -1007,8 +1007,8 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@octopusdeploy/eslint-plugin-step-package/0.1.0_96b3e0b7debd8ab03d004476ef054e3a:
-    resolution: {integrity: sha512-A+lcSYA3YP9ieMZ+2X+/ptkpN/hv0XjI5e3a0bE26P1aLJZNAddhiJcKKWzIdI3uPSq9r0VXFWZI76joP7kj/Q==, tarball: '@octopusdeploy/eslint-plugin-step-package/-/@octopusdeploy/eslint-plugin-step-package-0.1.0.tgz'}
+  /@octopusdeploy/eslint-plugin-step-package/0.1.1_96b3e0b7debd8ab03d004476ef054e3a:
+    resolution: {integrity: sha512-PtyHx085hEJvI2GL3aQaGlwTTGYjJ1x0exMeIgs4M+OPkR/Cmhq+9C9irtEkM4IOe9UTKPrj3uXgYio1KtZNmw==, tarball: '@octopusdeploy/eslint-plugin-step-package/-/@octopusdeploy/eslint-plugin-step-package-0.1.1.tgz'}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0
       eslint-plugin-import: ^2.0.0
@@ -1555,7 +1555,7 @@ packages:
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
-      '@types/json-schema': 7.0.9
+      '@types/json-schema': 7.0.11
       '@typescript-eslint/scope-manager': 5.30.0
       '@typescript-eslint/types': 5.30.0
       '@typescript-eslint/typescript-estree': 5.30.0_typescript@4.6.4
