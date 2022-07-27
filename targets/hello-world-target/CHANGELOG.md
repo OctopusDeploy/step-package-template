@@ -1,5 +1,11 @@
 # hello-world-target
 
+## 1.0.3
+
+### Patch Changes
+
+-   f63d85d: Uses changesets token and pins octo cli for build
+
 ## 1.0.2
 
 ### Patch Changes
