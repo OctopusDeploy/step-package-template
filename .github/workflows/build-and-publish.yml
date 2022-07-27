@@ -99,7 +99,7 @@ jobs:
 
       - name: Get branch names
         id: branch_names
-        uses: tj-actions/branch-names@v4.5
+        uses: tj-actions/branch-names@v4.9
 
       - name: Replace invalid branch characters
         uses: OctopusDeploy/util-actions/find-and-replace-all@find-and-replace-all.0.1.0
