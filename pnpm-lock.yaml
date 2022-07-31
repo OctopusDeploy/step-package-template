@@ -7,7 +7,7 @@ importers:
       '@changesets/cli': 2.18.1
       '@octopusdeploy/eslint-plugin-step-package': 0.1.1
       '@octopusdeploy/step-package-cli': 1.8.1
-      '@types/node': 14.18.22
+      '@types/node': 14.18.23
       '@typescript-eslint/eslint-plugin': 4.33.0
       '@typescript-eslint/parser': 4.33.0
       eslint: 7.32.0
@@ -25,7 +25,7 @@ importers:
       '@changesets/cli': 2.18.1
       '@octopusdeploy/eslint-plugin-step-package': 0.1.1_s2z6bn66xwflapiair3o6bkohi
       '@octopusdeploy/step-package-cli': 1.8.1
-      '@types/node': 14.18.22
+      '@types/node': 14.18.23
       '@typescript-eslint/eslint-plugin': 4.33.0_lzzr7k3tjtqil7aczuhmzzwame
       '@typescript-eslint/parser': 4.33.0_e4zyhrvfnqudwdx5bevnvkluy4
       eslint: 7.32.0
@@ -43,7 +43,7 @@ importers:
       '@octopusdeploy/step-api': 1.4.1
       '@octopusdeploy/step-package-cli': 1.8.1
       '@types/jest': 26.0.24
-      '@types/node': 14.18.22
+      '@types/node': 14.18.23
       '@typescript-eslint/eslint-plugin': 4.33.0
       '@typescript-eslint/parser': 4.33.0
       eslint: 7.32.0
@@ -71,7 +71,7 @@ importers:
       '@octopusdeploy/step-api': 1.4.1
       '@octopusdeploy/step-package-cli': 1.8.1
       '@types/jest': 26.0.24
-      '@types/node': 14.18.22
+      '@types/node': 14.18.23
       '@typescript-eslint/eslint-plugin': 4.33.0_lzzr7k3tjtqil7aczuhmzzwame
       '@typescript-eslint/parser': 4.33.0_e4zyhrvfnqudwdx5bevnvkluy4
       eslint: 7.32.0
@@ -96,7 +96,7 @@ importers:
       '@octopusdeploy/step-api': 1.4.1
       '@octopusdeploy/step-package-cli': 1.8.1
       '@types/jest': 26.0.24
-      '@types/node': 14.18.22
+      '@types/node': 14.18.23
       '@typescript-eslint/eslint-plugin': 4.33.0
       '@typescript-eslint/parser': 4.33.0
       eslint: 7.32.0
@@ -122,7 +122,7 @@ importers:
       '@octopusdeploy/step-api': 1.4.1
       '@octopusdeploy/step-package-cli': 1.8.1
       '@types/jest': 26.0.24
-      '@types/node': 14.18.22
+      '@types/node': 14.18.23
       '@typescript-eslint/eslint-plugin': 4.33.0_lzzr7k3tjtqil7aczuhmzzwame
       '@typescript-eslint/parser': 4.33.0_e4zyhrvfnqudwdx5bevnvkluy4
       eslint: 7.32.0
@@ -1287,8 +1287,8 @@ packages:
     resolution: {integrity: sha512-qZdePUDSLAZRXXV234bLBEUM0nAQjoxbcSwp1rqSMUe1rZ47mwU6OjciR/JvF1Oo8mc0ys6GE0ks0HGgqAZoGg==}
     dev: true
 
-  /@types/node/14.18.22:
-    resolution: {integrity: sha512-qzaYbXVzin6EPjghf/hTdIbnVW1ErMx8rPzwRNJhlbyJhu2SyqlvjGOY/tbUt6VFyzg56lROcOeSQRInpt63Yw==}
+  /@types/node/14.18.23:
+    resolution: {integrity: sha512-MhbCWN18R4GhO8ewQWAFK4TGQdBpXWByukz7cWyJmXhvRuCIaM/oWytGPqVmDzgEnnaIc9ss6HbU5mUi+vyZPA==}
     dev: true
 
   /@types/node/16.11.20:
