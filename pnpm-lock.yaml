@@ -55,7 +55,7 @@ importers:
       hello-world-target: 1.0.2
       jest: 26.6.3
       jest-cli: 26.6.3
-      jest-expect-message: 1.0.2
+      jest-expect-message: 1.0.4
       jest-extended: 0.11.5
       jest-junit: 13.2.0
       jest-runner-eslint: 0.11.1
@@ -82,7 +82,7 @@ importers:
       eslint-plugin-prettier: 3.4.1_180f37bdf0df965baf264f9cfe7a5521
       jest: 26.6.3
       jest-cli: 26.6.3
-      jest-expect-message: 1.0.2
+      jest-expect-message: 1.0.4
       jest-extended: 0.11.5
       jest-junit: 13.2.0
       jest-runner-eslint: 0.11.1_eslint@7.32.0+jest@26.6.3
@@ -107,7 +107,7 @@ importers:
       eslint-plugin-prettier: 3.4.1
       jest: 26.6.3
       jest-cli: 26.6.3
-      jest-expect-message: 1.0.2
+      jest-expect-message: 1.0.4
       jest-extended: 0.11.5
       jest-junit: 13.2.0
       jest-runner-eslint: 0.11.1
@@ -133,7 +133,7 @@ importers:
       eslint-plugin-prettier: 3.4.1_180f37bdf0df965baf264f9cfe7a5521
       jest: 26.6.3
       jest-cli: 26.6.3
-      jest-expect-message: 1.0.2
+      jest-expect-message: 1.0.4
       jest-extended: 0.11.5
       jest-junit: 13.2.0
       jest-runner-eslint: 0.11.1_eslint@7.32.0+jest@26.6.3
@@ -3997,8 +3997,8 @@ packages:
       jest-util: 26.6.2
     dev: true
 
-  /jest-expect-message/1.0.2:
-    resolution: {integrity: sha512-WFiXMgwS2lOqQZt1iJMI/hOXpUm32X+ApsuzYcQpW5m16Pv6/Gd9kgC+Q+Q1YVNU04kYcAOv9NXMnjg6kKUy6Q==}
+  /jest-expect-message/1.0.4:
+    resolution: {integrity: sha512-bcUBwHbUPMvCeEpBmP6sFmfw8JaqjmoBt7qr7ZDNRU2jhR1GrpWVMChDz29o3jva0nrRUQYOkvDSO+7dhONRpg==}
     dev: true
 
   /jest-extended/0.11.5:
