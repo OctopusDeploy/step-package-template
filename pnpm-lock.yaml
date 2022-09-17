@@ -7,7 +7,7 @@ importers:
       '@changesets/cli': 2.18.1
       '@octopusdeploy/eslint-plugin-step-package': 0.1.1
       '@octopusdeploy/step-package-cli': 1.8.2
-      '@types/node': 14.18.28
+      '@types/node': 14.18.29
       '@typescript-eslint/eslint-plugin': 4.33.0
       '@typescript-eslint/parser': 4.33.0
       eslint: 7.32.0
@@ -25,7 +25,7 @@ importers:
       '@changesets/cli': 2.18.1
       '@octopusdeploy/eslint-plugin-step-package': 0.1.1_96b3e0b7debd8ab03d004476ef054e3a
       '@octopusdeploy/step-package-cli': 1.8.2
-      '@types/node': 14.18.28
+      '@types/node': 14.18.29
       '@typescript-eslint/eslint-plugin': 4.33.0_5e731fab734ce085fc02cd0ecce6c061
       '@typescript-eslint/parser': 4.33.0_eslint@7.32.0+typescript@4.6.4
       eslint: 7.32.0
@@ -43,7 +43,7 @@ importers:
       '@octopusdeploy/step-api': 1.4.1
       '@octopusdeploy/step-package-cli': 1.8.2
       '@types/jest': 26.0.24
-      '@types/node': 14.18.28
+      '@types/node': 14.18.29
       '@typescript-eslint/eslint-plugin': 4.33.0
       '@typescript-eslint/parser': 4.33.0
       eslint: 7.32.0
@@ -71,7 +71,7 @@ importers:
       '@octopusdeploy/step-api': 1.4.1
       '@octopusdeploy/step-package-cli': 1.8.2
       '@types/jest': 26.0.24
-      '@types/node': 14.18.28
+      '@types/node': 14.18.29
       '@typescript-eslint/eslint-plugin': 4.33.0_5e731fab734ce085fc02cd0ecce6c061
       '@typescript-eslint/parser': 4.33.0_eslint@7.32.0+typescript@4.6.4
       eslint: 7.32.0
@@ -96,7 +96,7 @@ importers:
       '@octopusdeploy/step-api': 1.4.1
       '@octopusdeploy/step-package-cli': 1.8.2
       '@types/jest': 26.0.24
-      '@types/node': 14.18.28
+      '@types/node': 14.18.29
       '@typescript-eslint/eslint-plugin': 4.33.0
       '@typescript-eslint/parser': 4.33.0
       eslint: 7.32.0
@@ -122,7 +122,7 @@ importers:
       '@octopusdeploy/step-api': 1.4.1
       '@octopusdeploy/step-package-cli': 1.8.2
       '@types/jest': 26.0.24
-      '@types/node': 14.18.28
+      '@types/node': 14.18.29
       '@typescript-eslint/eslint-plugin': 4.33.0_5e731fab734ce085fc02cd0ecce6c061
       '@typescript-eslint/parser': 4.33.0_eslint@7.32.0+typescript@4.6.4
       eslint: 7.32.0
@@ -1287,8 +1287,8 @@ packages:
     resolution: {integrity: sha512-qZdePUDSLAZRXXV234bLBEUM0nAQjoxbcSwp1rqSMUe1rZ47mwU6OjciR/JvF1Oo8mc0ys6GE0ks0HGgqAZoGg==}
     dev: true
 
-  /@types/node/14.18.28:
-    resolution: {integrity: sha512-CK2fnrQlIgKlCV3N2kM+Gznb5USlwA1KFX3rJVHmgVk6NJxFPuQ86pAcvKnu37IA4BGlSRz7sEE1lHL1aLZ/eQ==}
+  /@types/node/14.18.29:
+    resolution: {integrity: sha512-LhF+9fbIX4iPzhsRLpK5H7iPdvW8L4IwGciXQIOEcuF62+9nw/VQVsOViAOOGxY3OlOKGLFv0sWwJXdwQeTn6A==}
     dev: true
 
   /@types/node/16.11.20:
