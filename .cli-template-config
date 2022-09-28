@@ -37,7 +37,7 @@
     },
     {
       "name": "git",
-      "files": ["./.gitignore"]
+      "files": ["./gitignore:./.gitgnore"]
     },
     {
       "name": "eslint",
