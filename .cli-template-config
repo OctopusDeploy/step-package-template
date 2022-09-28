@@ -1,0 +1,374 @@
+{
+  "name": "Step Package",
+  "options": [
+    {
+      "name": "renovate",
+      "files": ["./renovate-config.js"],
+      "fileReplacements": [
+        {
+          "file": "./renovate-config.js",
+          "mappings": [
+            {
+              "from": "OctopusDeploy/step-package-template",
+              "to": "{githubRepo}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pnpm",
+      "files": ["./pnpm-workspace.yaml"],
+      "fileReplacements": [
+        {
+          "file": "./pnpm-workspace.yaml",
+          "mappings": [
+            {
+              "from": "steps/**",
+              "to": "{stepsFolder}/**"
+            },
+            {
+              "from": "targets/**",
+              "to": "{deploymentTargetFolder}/**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "git",
+      "files": ["./.gitignore"]
+    },
+    {
+      "name": "eslint",
+      "files": ["./.eslintignore", "./.eslintrc.js"]
+    },
+    {
+      "name": "github workflows",
+      "files": [
+        "./.github/workflows/build-and-publish.yml",
+        "./.github/workflows/create-versioning-pr.yml",
+        "./.github/workflows/renovate-pull-request-automation.yml",
+        "./.github/workflows/update-dependencies.yml"
+      ]
+    }
+  ],
+  "files": ["./package.json", "tsconfig.json"],
+  "fileReplacements": [
+    {
+      "file": "./package.json",
+      "mappings": [
+        {
+          "from": "OctopusDeploy/step-package-template",
+          "to": "{githubRepo}"
+        },
+        {
+          "from": "hello-world",
+          "to": "{stepPackageName}"
+        },
+        {
+          "from": "{steps}",
+          "to": "{{stepsFolder}}"
+        },
+        {
+          "from": "{targets}",
+          "to": "({deploymentTargetFolder}}"
+        }
+      ]
+    }
+  ],
+  "userConfig": [
+    {
+      "type": "input",
+      "name": "StepPackageName",
+      "message": "The name for the step package.",
+      "default": null,
+      "configKey": "stepPackageName"
+    },
+    {
+      "type": "input",
+      "name": "DeploymentTargetFolder",
+      "message": "The sub-folder in the step package folder that the deployment target will be added to.",
+      "default": "targets",
+      "configKey": "deploymentTargetFolder"
+    },
+    {
+      "type": "input",
+      "name": "StepsTargetFolder",
+      "message": "The sub-folder in the step package folder that the steps will be added to.",
+      "default": "steps",
+      "configKey": "stepsFolder"
+    },
+    {
+      "type": "input",
+      "name": "GithubRepo",
+      "message": "This is the Github repo name for the step package in the format user/repo (OctopusDeploy/step-package-template)",
+      "default": null,
+      "configKey": "githubRepo"
+    }
+  ],
+  "createDirectories": ["./{stepsFolder}", "./{deploymentTargetFolder}"],
+  "createdTemplates": [
+    {
+      "name": "Step",
+      "sourceSubFolder": "./steps/hello-world/",
+      "destinationSubFolder": "./{stepsFolder}/(stepId)",
+      "options": [
+        {
+          "name": "tests",
+          "files": ["./src/__tests__/executor.spec.ts"]
+        }
+      ],
+      "files": [
+        "./src/executor.ts",
+        "./src/inputs.ts",
+        "./src/logo.svg",
+        "./src/metadata.json",
+        "./src/ui.ts",
+        "./src/validation.ts",
+        "./package.json",
+        "./tsconfig.json"
+      ],
+      "fileReplacements": [
+        {
+          "file": "./src/executor.ts",
+          "mappings": [
+            {
+              "from": "import HelloWorldTargetInputs from \"hello-world-target\";",
+              "to": ""
+            },
+            {
+              "from": ", HelloWorldTargetInputs",
+              "to": ""
+            },
+            {
+              "from": " target,",
+              "to": ""
+            },
+            {
+              "from": "HelloWorldStep",
+              "to": "(stepNameInternal)"
+            },
+            {
+              "from": "target.greetingPrefix + \" \" + ",
+              "to": ""
+            }
+          ]
+        },
+        {
+          "file": "./src/inputs.ts",
+          "mappings": [
+            {
+              "from": "HelloWorldStep",
+              "to": "(stepNameInternal)"
+            }
+          ]
+        },
+        {
+          "file": "./src/metadata.json",
+          "mappings": [
+            {
+              "from": "\"id\": \"hello-world\",",
+              "to": "\"id\": \"(stepId)\",,"
+            },
+            {
+              "from": "\"name\": \"Hello World\",",
+              "to": "\"name\": \"(stepName)\","
+            },
+            {
+              "from": "\"deploymentTargetId\": \"hello-world-target\",",
+              "to": ""
+            },
+            {
+              "from": "OctopusDeploy/step-package-template",
+              "to": "{githubRepo}"
+            }
+          ]
+        },
+        {
+          "file": "./src/ui.ts",
+          "mappings": [
+            {
+              "from": "HelloWorldStep",
+              "to": "(stepNameInternal)"
+            }
+          ]
+        },
+        {
+          "file": "./src/validation.ts",
+          "mappings": [
+            {
+              "from": "HelloWorldStep",
+              "to": "(stepNameInternal)"
+            }
+          ]
+        },
+        {
+          "file": "./package.json",
+          "mappings": [
+            {
+              "from": "\"name\": \"hello-world\"",
+              "to": "\"name\": \"(stepId)\""
+            },
+            {
+              "from": "\"version\": \"1.0.2\"",
+              "to": "\"version\": \"1.0.0\""
+            },
+            {
+              "from": "dist/hello-world.$npm_package_version.zip",
+              "to": "dist/(stepId).$npm_package_version.zip"
+            },
+            {
+              "from": "\"hello-world-target\": \"1.0.2\",",
+              "to": ""
+            },
+            {
+              "from": "OctopusDeploy/step-package-template",
+              "to": "{githubRepo}"
+            }
+          ]
+        }
+      ],
+      "userConfig": [],
+      "templateConfig": [
+        {
+          "type": "input",
+          "name": "StepName",
+          "message": "The name for the step in the package.",
+          "default": null,
+          "configKey": "stepName"
+        },
+        {
+          "type": "input",
+          "name": "StepNameInternal",
+          "message": "The internal name for the step in the package.",
+          "default": "!(stepName)",
+          "configKey": "stepNameInternal"
+        },
+        {
+          "type": "input",
+          "name": "StepId",
+          "message": "The id for the step in the package.",
+          "default": "-(stepName)",
+          "configKey": "stepId"
+        }
+      ]
+    },
+    {
+      "name": "Deployment Target",
+      "sourceSubFolder": "./targets/hello-world-target/",
+      "destinationSubFolder": "./{deploymentTargetFolder}/(deploymentTargetId)",
+      "options": [],
+      "files": [
+        "./src/executor.ts",
+        "./src/inputs.ts",
+        "./src/logo.svg",
+        "./src/metadata.json",
+        "./src/ui.ts",
+        "./src/validation.ts",
+        "./package.json",
+        "./tsconfig.json"
+      ],
+      "fileReplacements": [
+        {
+          "file": "./src/executor.ts",
+          "mappings": [
+            {
+              "from": "HelloWorldDeploymentTarget",
+              "to": "(deploymentTargetNameInternal)"
+            }
+          ]
+        },
+        {
+          "file": "./src/inputs.ts",
+          "mappings": [
+            {
+              "from": "HelloWorldTarget",
+              "to": "(deploymentTargetNameInternal)"
+            }
+          ]
+        },
+        {
+          "file": "./src/metadata.json",
+          "mappings": [
+            {
+              "from": "\"id\": \"hello-world-target\",",
+              "to": "\"id\": \"(deploymentTargetId)\",,"
+            },
+            {
+              "from": "\"name\": \"Hello world target\",",
+              "to": "\"name\": \"(deploymentTargetName)\","
+            },
+            {
+              "from": "OctopusDeploy/step-package-template",
+              "to": "{githubRepo}"
+            }
+          ]
+        },
+        {
+          "file": "./src/ui.ts",
+          "mappings": [
+            {
+              "from": "HelloWorldTarget",
+              "to": "(deploymentTargetNameInternal)"
+            }
+          ]
+        },
+        {
+          "file": "./src/validation.ts",
+          "mappings": [
+            {
+              "from": "HelloWorldTarget",
+              "to": "(deploymentTargetNameInternal)"
+            }
+          ]
+        },
+        {
+          "file": "./package.json",
+          "mappings": [
+            {
+              "from": "\"name\": \"hello-world-target\"",
+              "to": "\"name\": \"(deploymentTargetId)\""
+            },
+            {
+              "from": "\"version\": \"1.0.2\"",
+              "to": "\"version\": \"1.0.0\""
+            },
+            {
+              "from": "dist/hello-world-target.$npm_package_version.zip",
+              "to": "dist/(deploymentTargetId).$npm_package_version.zip"
+            },
+            {
+              "from": "OctopusDeploy/step-package-template",
+              "to": "{githubRepo}"
+            }
+          ]
+        }
+      ],
+      "userConfig": [],
+      "templateConfig": [
+        {
+          "type": "input",
+          "name": "DeploymentTargetName",
+          "message": "The name for the deployment target in the package.",
+          "default": null,
+          "configKey": "deploymentTargetName"
+        },
+        {
+          "type": "input",
+          "name": "DeploymentTargetNameInternal",
+          "message": "The internal name for the deployment target in the package.",
+          "default": "!(deploymentTargetName)",
+          "configKey": "deploymentTargetNameInternal"
+        },
+        {
+          "type": "input",
+          "name": "DeploymentTargetId",
+          "message": "The id for the deployment target in the package.",
+          "default": "-(deploymentTargetName)",
+          "configKey": "deploymentTargetId"
+        }
+      ]
+    }
+  ]
+}
