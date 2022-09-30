@@ -64,7 +64,7 @@
         },
         {
           "from": "hello-world",
-          "to": "{stepPackageName}"
+          "to": "-{stepPackageName}"
         },
         {
           "from": "{steps}",
@@ -169,7 +169,7 @@
           "mappings": [
             {
               "from": "\"id\": \"hello-world\",",
-              "to": "\"id\": \"(stepId)\",,"
+              "to": "\"id\": \"(stepId)\","
             },
             {
               "from": "\"name\": \"Hello World\",",
@@ -293,7 +293,7 @@
           "mappings": [
             {
               "from": "\"id\": \"hello-world-target\",",
-              "to": "\"id\": \"(deploymentTargetId)\",,"
+              "to": "\"id\": \"(deploymentTargetId)\","
             },
             {
               "from": "\"name\": \"Hello world target\",",
