@@ -72,7 +72,7 @@
         },
         {
           "from": "{targets}",
-          "to": "({deploymentTargetFolder}}"
+          "to": "{{deploymentTargetFolder}}"
         }
       ]
     }
