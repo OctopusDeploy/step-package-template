@@ -253,6 +253,122 @@
           "configKey": "stepId"
         }
       ]
+    },
+    {
+      "name": "Deployment Target",
+      "sourceSubFolder": "./targets/hello-world-target/",
+      "destinationSubFolder": "./{deploymentTargetFolder}/(deploymentTargetId)",
+      "options": [],
+      "files": [
+        "./src/executor.ts",
+        "./src/inputs.ts",
+        "./src/logo.svg",
+        "./src/metadata.json",
+        "./src/ui.ts",
+        "./src/validation.ts",
+        "./package.json",
+        "./tsconfig.json"
+      ],
+      "fileReplacements": [
+        {
+          "file": "./src/executor.ts",
+          "mappings": [
+            {
+              "from": "HelloWorldDeploymentTarget",
+              "to": "(deploymentTargetNameInternal)"
+            }
+          ]
+        },
+        {
+          "file": "./src/inputs.ts",
+          "mappings": [
+            {
+              "from": "HelloWorldTarget",
+              "to": "(deploymentTargetNameInternal)"
+            }
+          ]
+        },
+        {
+          "file": "./src/metadata.json",
+          "mappings": [
+            {
+              "from": "\"id\": \"hello-world-target\",",
+              "to": "\"id\": \"(deploymentTargetId)\","
+            },
+            {
+              "from": "\"name\": \"Hello world target\",",
+              "to": "\"name\": \"(deploymentTargetName)\","
+            },
+            {
+              "from": "OctopusDeploy/step-package-template",
+              "to": "{githubRepo}"
+            }
+          ]
+        },
+        {
+          "file": "./src/ui.ts",
+          "mappings": [
+            {
+              "from": "HelloWorldTarget",
+              "to": "(deploymentTargetNameInternal)"
+            }
+          ]
+        },
+        {
+          "file": "./src/validation.ts",
+          "mappings": [
+            {
+              "from": "HelloWorldTarget",
+              "to": "(deploymentTargetNameInternal)"
+            }
+          ]
+        },
+        {
+          "file": "./package.json",
+          "mappings": [
+            {
+              "from": "\"name\": \"hello-world-target\"",
+              "to": "\"name\": \"(deploymentTargetId)\""
+            },
+            {
+              "from": "\"version\": \"1.0.2\"",
+              "to": "\"version\": \"1.0.0\""
+            },
+            {
+              "from": "dist/hello-world-target.$npm_package_version.zip",
+              "to": "dist/(deploymentTargetId).$npm_package_version.zip"
+            },
+            {
+              "from": "OctopusDeploy/step-package-template",
+              "to": "{githubRepo}"
+            }
+          ]
+        }
+      ],
+      "userConfig": [],
+      "templateConfig": [
+        {
+          "type": "input",
+          "name": "DeploymentTargetName",
+          "message": "The name for the deployment target in the package.",
+          "default": null,
+          "configKey": "deploymentTargetName"
+        },
+        {
+          "type": "input",
+          "name": "DeploymentTargetNameInternal",
+          "message": "The internal name for the deployment target in the package.",
+          "default": "!(deploymentTargetName)",
+          "configKey": "deploymentTargetNameInternal"
+        },
+        {
+          "type": "input",
+          "name": "DeploymentTargetId",
+          "message": "The id for the deployment target in the package.",
+          "default": "-(deploymentTargetName)",
+          "configKey": "deploymentTargetId"
+        }
+      ]
     }
   ]
 }
