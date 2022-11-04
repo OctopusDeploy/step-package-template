@@ -15,6 +15,11 @@
     "step-package": "step-package-cli",
     "test": "pnpm --filter={steps/*} --filter={targets/*} --filter={common/*} run test"
   },
+  "engines": {
+    "node": "^14.0.0",
+    "pnpm": "^7.9.5",
+    "npm": "not-supported.please-use-pnpm-instead"
+  },
   "dependencies": {
     "tslib": "2.3.1"
   },
