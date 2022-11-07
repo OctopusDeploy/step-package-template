@@ -110,7 +110,7 @@ jobs:
           replace: "-"
 
       - name: Version packages
-        run: pnpm changeset version -- --snapshot ${{ steps.extract_branch.outputs.value }}
+        run: pnpm changeset version --snapshot ${{ steps.extract_branch.outputs.value }}
 
       - name: Publish
         # Shift the additional arguments three times - Shift pass the top level ci:publish, past the step-specific "build" invocation, and add them to the step-specific "publishToOctopus" invocation
