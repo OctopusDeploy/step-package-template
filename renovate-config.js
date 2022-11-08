@@ -25,6 +25,6 @@ module.exports = {
     requireConfig: false,
     prCreation: "not-pending",
     constraints: {
-        pnpm: "< 7.0.0",
+        pnpm: "7.9.5",
     },
 };
