@@ -5,9 +5,9 @@
   "scripts": {
     "build": "tsc --declaration",
     "ci:build": "tsc --declaration",
-    "ci:publish": "pnpm run step-package build -- -s ./src -p . -o ../../dist -r ../.. && pnpm run step-package publishToOctopus -- --packagePath ../../dist/hello-world-target.$npm_package_version.zip",
+    "ci:publish": "pnpm run step-package build -s ./src -p . -o ../../dist -r ../.. && pnpm run step-package publishToOctopus --packagePath ../../dist/hello-world-target.$npm_package_version.zip",
     "ci:test": "jest --maxWorkers 4 --testTimeout 60000 --json --testPathIgnorePatterns \"dist\",\"node_modules\" --outputFile=./results.xml --reporters=\"jest-junit\" --passWithNoTests",
-    "local:publish": "pnpm run step-package build -- -s ./src -p . -o ../../dist -r ../.. --appendPreReleaseTimestamp",
+    "local:publish": "pnpm run step-package build -s ./src -p . -o ../../dist -r ../.. --appendPreReleaseTimestamp",
     "step-package": "step-package-cli",
     "test": "jest --maxWorkers 1 --testTimeout 60000 --json --testPathIgnorePatterns \"dist\",\"node_modules\" --outputFile=./results.json --passWithNoTests"
   },
