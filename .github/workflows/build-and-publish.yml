@@ -82,7 +82,7 @@ jobs:
       - name: Build
         run: pnpm run ci:build
 
-      - uses: OctopusDeploy/install-octopus-cli-action@v1.1.10
+      - uses: OctopusDeploy/install-octopus-cli-action@v1.2.1
         with:
           version: 7.4.3663
 
@@ -145,7 +145,7 @@ jobs:
       - name: Build
         run: pnpm run ci:build
 
-      - uses: OctopusDeploy/install-octopus-cli-action@v1.1.10
+      - uses: OctopusDeploy/install-octopus-cli-action@v1.2.1
         with:
           version: 7.4.3663
 
