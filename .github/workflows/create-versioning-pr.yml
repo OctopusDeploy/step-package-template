@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false # Fixes issue identified in https://github.com/changesets/action/issues/70
 
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v2.2.4
         with:
           version: 7.9.5
 
