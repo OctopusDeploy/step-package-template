@@ -12,13 +12,11 @@ Step packages are:
 
 This sample template provides a starting point for anyone looking to create a new step package. The code in this repository defines a _Hello World_ target and step demonstrating a minimal step package implementation.
 
-Building this template will result in two-step packages being produced: 
+Building this template will result in two step packages being produced: 
 - `hello-world-target.x.y.z.zip` 
 - `hello-world-upload.x.y.z.zip`
-
+ 
 Any step packages built from this template will be compatible with Octopus Server v2021.3 and newer.
-
-> Note: You don't have to use the template, but if you don't you will need to set everything up manually, and currently we have no guide on how to do this.
 
 To learn more about step packages, consult the [step package documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/StepPackages.md).
 
@@ -26,9 +24,11 @@ To learn more about step packages, consult the [step package documentation](http
 
 1. Click the "Use this template" button above to create a new GitHub repository using this template.
 2. Clone the repository to your machine.
-3. Use the steps listed in the [Building the step package](#building-the-step-package) section below to build and deploy the step package locally.
-4. Follow the instructions in the [Releasing the step package](#releasing-the-step-package) section below to build and release the step package via GitHub Actions.
+3. Use the steps listed in the [Building the step package](#building-the-step-package) section below to build and deploy the step package locally. 
+4. Follow the instructions in the [Releasing the step package](#releasing-the-step-package) section below to build and release the step package via GitHub Actions. 
 5. Update `renovate-config.js` to point to your newly created repository. See [Dependency Management](#dependency-management) for more information.
+
+> Note: Please review the names of the packages in your repository before publishing to ensure they are named appropriately.
 
 ## Project structure
 
@@ -165,8 +165,6 @@ https://github.com/OctopusDeploy/step-package-template/blob/eca604f5111c817a0828
 Adding a new step closely resembles adding a new deployment target. New files for the step are added under `steps/<step-name>/src`. The same files are required, and the same conventions are followed.
 
 The key differences for steps are outlined below. Anything not outlined is assumed to be the same as defined for adding a new target.
-
-> Note: The package name in the package.json for the step template contains `@octopusdeploy/` for security reasons. Please ensure you remove this when renaming your step.
 
 ### `metadata.json`
 
