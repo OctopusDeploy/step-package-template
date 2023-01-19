@@ -14,17 +14,17 @@ jobs:
     if: ${{ !startsWith(github.event.commits[0].message, 'Version Packages') }}
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.3.0
         with:
           fetch-depth: 0
           persist-credentials: false # Fixes issue identified in https://github.com/changesets/action/issues/70
 
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v2.2.4
         with:
           version: 7.9.5
 
       - name: setup node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3.6.0
         with:
           node-version: "14.*"
           cache: "pnpm"

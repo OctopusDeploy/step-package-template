@@ -1,26 +1,33 @@
 name: Renovate
 on:
   schedule:
-    - cron: "0 0 * * *"
-
+    - cron: '0 0 * * *'
+  
   workflow_dispatch:
+    inputs:
+      dryRun:
+        type: boolean
+        required: false
+        default: false
+        description: Dry run (don't create PRs)
 
 jobs:
   renovate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.4.2
+        uses: actions/checkout@v3.3.0
 
-      # Note: Renovate runs within it's own docker container and doesn't
+      # Note: Renovate runs within it's own docker container and doesn't 
       # know really anything about which version of tooling are in use e.g. pnpm
       # it just uses the latest version. This could potentially cause issues if
       # a new major version of pnpm gets released, so we have a constraint in
-      # the renovate-config.js file to restrict it to use v6 to align with us.
+      # the renovate-config.js file to restrict it to use a specific version of pnpm to align with us.
       - name: Self-hosted Renovate
-        uses: renovatebot/github-action@v29.36.2
+        uses: renovatebot/github-action@v34.104.0
         with:
           configurationFile: renovate-config.js
           token: ${{ secrets.RENOVATE_GITHUB_TOKEN }}
         env:
           LOG_LEVEL: debug
+          RENOVATE_DRY_RUN: ${{ inputs.dryRun && 'full' || null }}

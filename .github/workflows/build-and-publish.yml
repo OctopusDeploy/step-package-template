@@ -15,16 +15,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.3.0
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v2.2.4
         with:
           version: 7.9.5
 
       - name: setup node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3.6.0
         with:
           node-version: "14.*"
           cache: "pnpm"
@@ -59,16 +59,16 @@ jobs:
     if: ${{ github.event_name == 'schedule' }}
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.3.0
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v2.2.4
         with:
           version: 7.9.5
 
       - name: Setup node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3.6.0
         with:
           node-version: "14.*"
           cache: "pnpm"
@@ -82,13 +82,13 @@ jobs:
       - name: Build
         run: pnpm run ci:build
 
-      - uses: OctopusDeploy/install-octopus-cli-action@v1.1.10
+      - uses: OctopusDeploy/install-octopus-cli-action@v1.2.1
         with:
           version: 7.4.3663
 
       - name: Add pre-release changeset
         id: add_pre_release_changeset
-        uses: OctopusDeploy/util-actions/add-changeset@add-changeset.0.1.1
+        uses: OctopusDeploy/util-actions/add-changeset@add-changeset.0.2.0
         with:
           type: patch
           summary: Changeset added for pre-release versioning
@@ -97,20 +97,12 @@ jobs:
             **/node_modules/**/*
             **/__tests__/**/*
 
-      - name: Get branch names
-        id: branch_names
-        uses: tj-actions/branch-names@v4.5
-
       - name: Replace invalid branch characters
-        uses: OctopusDeploy/util-actions/find-and-replace-all@find-and-replace-all.0.1.0
-        id: extract_branch
-        with:
-          source: ${{ steps.branch_names.outputs.current_branch }}
-          searchString: "/"
-          replace: "-"
+        uses: OctopusDeploy/util-actions/current-branch-name@current-branch-name.0.1.0
+        id: branch_names
 
       - name: Version packages
-        run: pnpm changeset version --snapshot ${{ steps.extract_branch.outputs.value }}
+        run: pnpm changeset version --snapshot ${{ steps.branch_names.outputs.branch_name }}
 
       - name: Publish
         run: "pnpm run ci:publish -s ${{ secrets.OCTOPUS_URL }} -k ${{ secrets.OCTOPUS_API_KEY }} --space ${{ secrets.OCTOPUS_SPACE }} --project ${{ secrets.OCTOPUS_PROJECT }} --deployTo Nightly --channel Nightly"
@@ -122,16 +114,16 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' && github.event_name != 'schedule' && startsWith(github.event.commits[0].message, 'Version Packages') }}
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.3.0
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v2.2.4
         with:
           version: 7.9.5
 
       - name: Setup node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3.6.0
         with:
           node-version: "14.*"
           cache: "pnpm"
@@ -145,7 +137,7 @@ jobs:
       - name: Build
         run: pnpm run ci:build
 
-      - uses: OctopusDeploy/install-octopus-cli-action@v1.1.10
+      - uses: OctopusDeploy/install-octopus-cli-action@v1.2.1
         with:
           version: 7.4.3663
 
