@@ -15,10 +15,8 @@ This sample template provides a starting point for anyone looking to create a ne
 Building this template will result in two step packages being produced: 
 - `hello-world-target.x.y.z.zip` 
 - `hello-world-upload.x.y.z.zip`
-
+ 
 Any step packages built from this template will be compatible with Octopus Server v2021.3 and newer.
-
-> Note: You don't have to use the template, but if you don't you will need to set everything up manually, and currently we have no guide on how to do this.
 
 To learn more about step packages, consult the [step package documentation](https://github.com/OctopusDeploy/step-api/blob/main/docs/StepPackages.md).
 
@@ -26,9 +24,11 @@ To learn more about step packages, consult the [step package documentation](http
 
 1. Click the "Use this template" button above to create a new GitHub repository using this template.
 2. Clone the repository to your machine.
-3. Use the steps listed in the [Building the step package](#building-the-step-package) section below to build and deploy the step package locally.
-4. Follow the instructions in the [Releasing the step package](#releasing-the-step-package) section below to build and release the step package via GitHub Actions.
+3. Use the steps listed in the [Building the step package](#building-the-step-package) section below to build and deploy the step package locally. 
+4. Follow the instructions in the [Releasing the step package](#releasing-the-step-package) section below to build and release the step package via GitHub Actions. 
 5. Update `renovate-config.js` to point to your newly created repository. See [Dependency Management](#dependency-management) for more information.
+
+> Note: Please review the names of the packages in your repository before publishing to ensure they are named appropriately.
 
 ## Project structure
 
@@ -190,6 +190,10 @@ Here we define the initial value of the `name` input to be a blank string, and b
 
 https://github.com/OctopusDeploy/step-package-template/blob/eca604f5111c817a082855a9a53002888748e69b/steps/hello-world/src/ui.ts
 
+## Target-less step packages
+
+Your step package may not require a target which means it can be removed. It's important to remember to also remove all references to the target package in your step. eg: remove references to `@octopusdeploy/hello-world-target` in [executor.ts](https://github.com/OctopusDeploy/step-package-template/blob/main/steps/hello-world/src/executor.ts) and [package.json](https://github.com/OctopusDeploy/step-package-template/blob/main/steps/hello-world/package.json)
+
 ## Building the step package
 
 To build step packages, run the following commands:
@@ -218,9 +222,9 @@ In order to add a change set, run `npx changeset add` which will:
 
 These details will automatically be captured in a markdown file under the `.changesets` folder within your PR.
 
-Once your PR is merged, the build will use the [Changesets Github Action](https://github.com/changesets/action) to create a separate _Version Packages_ PR which includes the merged release notes within the appropriate `CHANGELOG.md` files, and applied version bumps within the appropriate `package.json` files, which you will need to review.
+Once your PR is merged, the build will use the [Changesets GitHub Action](https://github.com/changesets/action) to create a separate _Version Packages_ PR which includes the merged release notes within the appropriate `CHANGELOG.md` files, and applied version bumps within the appropriate `package.json` files, which you will need to review.
 
-Upon merging the _Version Packages_ PR, the repository will be tagged with the new version, and a Github Release will be created for each changed step package.
+Upon merging the _Version Packages_ PR, the repository will be tagged with the new version, and a GitHub Release will be created for each changed step package.
 
 To access the newly-versioned package, you can retrieve it from the build artifacts produced after the `Version Packages` PR is merged.
 
