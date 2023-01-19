@@ -97,7 +97,7 @@ jobs:
             **/node_modules/**/*
             **/__tests__/**/*
 
-      - name: Replace invalid branch characters
+      - name: Get branch names
         uses: OctopusDeploy/util-actions/current-branch-name@current-branch-name.0.1.0
         id: branch_names
 
