@@ -85,8 +85,6 @@ They implement a common [Step API](https://github.com/OctopusDeploy/step-api/blo
 
 Adding a new target involves creating the following files under the `targets/<target-name>-target` directory. In the case of this sample step package, we'll create them under `targets/hello-world-target`:
 
-> Note: The package name in the package.json for the target template contains `@octopusdeploy/` for security reasons. Please ensure you remove this when renaming your target.
-
 * `src`
   * `metadata.json`
   * `inputs.ts`
