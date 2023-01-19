@@ -1,5 +1,5 @@
 {
-  "name": "hello-world-target",
+  "name": "@octopusdeploy/hello-world-target",
   "version": "1.0.2",
   "main": "dist/inputs.js",
   "scripts": {

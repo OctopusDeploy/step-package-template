@@ -12,7 +12,7 @@ Step packages are:
 
 This sample template provides a starting point for anyone looking to create a new step package. The code in this repository defines a _Hello World_ target and step demonstrating a minimal step package implementation.
 
-Building this template will result in two step packages being produced: 
+Building this template will result in two-step packages being produced: 
 - `hello-world-target.x.y.z.zip` 
 - `hello-world-upload.x.y.z.zip`
 
@@ -84,6 +84,8 @@ They implement a common [Step API](https://github.com/OctopusDeploy/step-api/blo
 ### Adding a new target
 
 Adding a new target involves creating the following files under the `targets/<target-name>-target` directory. In the case of this sample step package, we'll create them under `targets/hello-world-target`:
+
+> Note: The package name in the package.json for the target template contains `@octopusdeploy/` for security reasons. Please ensure you remove this when renaming your target.
 
 * `src`
   * `metadata.json`
@@ -164,6 +166,8 @@ Adding a new step closely resembles adding a new deployment target. New files fo
 
 The key differences for steps are outlined below. Anything not outlined is assumed to be the same as defined for adding a new target.
 
+> Note: The package name in the package.json for the step template contains `@octopusdeploy/` for security reasons. Please ensure you remove this when renaming your step.
+
 ### `metadata.json`
 
 Step metadata differs slightly from target metadata.
@@ -189,6 +193,10 @@ The step form displayed by the Octopus web UI is defined much the same as it was
 Here we define the initial value of the `name` input to be a blank string, and build the form with a single `text` input:
 
 https://github.com/OctopusDeploy/step-package-template/blob/eca604f5111c817a082855a9a53002888748e69b/steps/hello-world/src/ui.ts
+
+## Target-less step packages
+
+Your step package may not require a target which means it can be removed. It's important to remember to also remove all references to the target package in your step. eg: remove references to `@octopusdeploy/hello-world-target` in [executor.ts](https://github.com/OctopusDeploy/step-package-template/blob/main/steps/hello-world/src/executor.ts) and [package.json](https://github.com/OctopusDeploy/step-package-template/blob/main/steps/hello-world/package.json)
 
 ## Building the step package
 
@@ -218,9 +226,9 @@ In order to add a change set, run `npx changeset add` which will:
 
 These details will automatically be captured in a markdown file under the `.changesets` folder within your PR.
 
-Once your PR is merged, the build will use the [Changesets Github Action](https://github.com/changesets/action) to create a separate _Version Packages_ PR which includes the merged release notes within the appropriate `CHANGELOG.md` files, and applied version bumps within the appropriate `package.json` files, which you will need to review.
+Once your PR is merged, the build will use the [Changesets GitHub Action](https://github.com/changesets/action) to create a separate _Version Packages_ PR which includes the merged release notes within the appropriate `CHANGELOG.md` files, and applied version bumps within the appropriate `package.json` files, which you will need to review.
 
-Upon merging the _Version Packages_ PR, the repository will be tagged with the new version, and a Github Release will be created for each changed step package.
+Upon merging the _Version Packages_ PR, the repository will be tagged with the new version, and a GitHub Release will be created for each changed step package.
 
 To access the newly-versioned package, you can retrieve it from the build artifacts produced after the `Version Packages` PR is merged.
 
