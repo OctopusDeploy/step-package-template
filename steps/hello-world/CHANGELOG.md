@@ -1,4 +1,4 @@
-# hello-world
+# @octopusdeploy/hello-world
 
 ## 1.0.2
 

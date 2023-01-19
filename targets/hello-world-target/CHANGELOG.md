@@ -1,4 +1,4 @@
-# hello-world-target
+# @octopusdeploy/hello-world-target
 
 ## 1.0.2
 
