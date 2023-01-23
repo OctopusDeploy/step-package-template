@@ -52,6 +52,58 @@ jobs:
           path: ./**/test-results/*.xml
           reporter: jest-junit
 
+  publish_pre_release:
+    runs-on: ubuntu-latest
+    needs: build
+    name: Publish pre-release packages locally
+    if: ${{ github.ref != 'refs/heads/main' || (github.event_name != 'schedule' && !startsWith(github.event.commits[0].message, 'Version Packages')) }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3.3.0
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 7.9.5
+
+      - name: Setup node
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: "14.*"
+          cache: "pnpm"
+
+      # Why do we explicitly do pnpm install here and not use "run_install: true" above in the pnpm setup?
+      # We need to have pnpm setup before node in order to take advantage of the inbuilt caching that is available
+      # in that action, and running an install as part of pnpm setup won't use the cache, so we'll explicitly
+      # run it here after the cache
+      - run: pnpm install
+
+      - name: Build
+        run: pnpm run ci:build
+
+      - name: Add pre-release changeset
+        id: add_pre_release_changeset
+        uses: OctopusDeploy/util-actions/add-changeset@add-changeset.0.2.0
+        with:
+          type: patch
+          summary: Changeset added for pre-release versioning
+          ignore: |
+            package.json
+            **/node_modules/**/*
+            **/__tests__/**/*
+          filter: "hello-world"
+
+      - name: Get branch names
+        id: branch_names
+        uses: OctopusDeploy/util-actions/current-branch-name@current-branch-name.0.1.0
+
+      - name: Version packages
+        run: pnpm changeset version --snapshot ${{ steps.branch_names.outputs.branch_name }}
+
+      - name: Publish
+        run: "pnpm run local:publish"
+
   publish_nightly:
     runs-on: ubuntu-latest
     needs: build
