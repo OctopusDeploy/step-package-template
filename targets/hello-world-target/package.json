@@ -1,6 +1,6 @@
 {
   "name": "@octopusdeploy/hello-world-target",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/inputs.js",
   "scripts": {
     "build": "tsc --declaration",

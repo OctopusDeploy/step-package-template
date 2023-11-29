@@ -1,5 +1,15 @@
 # @octopusdeploy/hello-world
 
+## 1.0.3
+
+### Patch Changes
+
+-   f63d85d: Uses changesets token and pins octo cli for build
+-   1bd8e36: Bumped step-api and step-package-cli versions
+-   Updated dependencies [f63d85d]
+-   Updated dependencies [1bd8e36]
+    -   @octopusdeploy/hello-world-target@1.0.3
+
 ## 1.0.2
 
 ### Patch Changes
