@@ -39,8 +39,6 @@ Step package repositories use a _monorepo_ structure, which supports:
 
 A single step package repository is modelled on a volatility boundary - it groups together a set of steps and targets we reasonably expect to change together.
 
-> Note: Currently, this will not work with pnpm v7+. Make sure you are running pnpm v6 with this repository. If you try to use the v7 version of pnpm when running a command e.g. `pnpm run build` it will cause a loop where the command is consistently rerun with parameters supplied initially being re-appended.
-
 We strongly recommend the use of [PNPM workspaces](https://pnpm.io/workspaces) and [Changesets](https://github.com/atlassian/changesets) for package, build, and release management within the monorepo. This template pre-configures these tools for you.
 
 > Note: You will need PNPM to be installed globally on you machine [see docs here](https://pnpm.io/installation)
