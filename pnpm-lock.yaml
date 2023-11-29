@@ -40,7 +40,7 @@ importers:
   steps/hello-world:
     specifiers:
       '@changesets/cli': 2.18.1
-      '@octopusdeploy/hello-world-target': 1.0.2
+      '@octopusdeploy/hello-world-target': 1.0.3
       '@octopusdeploy/step-api': 4.0.0
       '@octopusdeploy/step-package-cli': 4.0.0
       '@types/jest': 26.0.24

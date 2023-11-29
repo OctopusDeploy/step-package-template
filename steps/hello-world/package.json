@@ -1,6 +1,6 @@
 {
   "name": "@octopusdeploy/hello-world",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/inputs.js",
   "scripts": {
     "build": "tsc --declaration",
@@ -47,7 +47,7 @@
     "titleTemplate": "{title}"
   },
   "dependencies": {
-    "@octopusdeploy/hello-world-target": "1.0.2",
+    "@octopusdeploy/hello-world-target": "1.0.3",
     "tslib": "2.3.1"
   },
   "devDependencies": {
