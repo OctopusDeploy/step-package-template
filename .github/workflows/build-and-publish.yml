@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v3.6.0
         with:
           fetch-depth: 0
 
@@ -59,7 +59,7 @@ jobs:
     if: ${{ github.ref != 'refs/heads/main' || (github.event_name != 'schedule' && !startsWith(github.event.commits[0].message, 'Version Packages')) }}
     steps:
       - name: checkout
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v3.6.0
         with:
           fetch-depth: 0
 
@@ -111,7 +111,7 @@ jobs:
     if: ${{ github.event_name == 'schedule' }}
     steps:
       - name: checkout
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v3.6.0
         with:
           fetch-depth: 0
 
@@ -166,7 +166,7 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' && github.event_name != 'schedule' && startsWith(github.event.commits[0].message, 'Version Packages') }}
     steps:
       - name: checkout
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v3.6.0
         with:
           fetch-depth: 0
 
