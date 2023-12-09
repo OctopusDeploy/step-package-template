@@ -6,7 +6,7 @@ importers:
     specifiers:
       '@changesets/cli': 2.26.2
       '@octopusdeploy/eslint-plugin-step-package': 1.0.0
-      '@octopusdeploy/step-package-cli': 4.0.0
+      '@octopusdeploy/step-package-cli': 4.0.1
       '@types/node': 14.18.63
       '@typescript-eslint/eslint-plugin': 4.33.0
       '@typescript-eslint/parser': 4.33.0
@@ -24,7 +24,7 @@ importers:
     devDependencies:
       '@changesets/cli': 2.26.2
       '@octopusdeploy/eslint-plugin-step-package': 1.0.0_ocpxibq534nj3x2pxnelsyuspu
-      '@octopusdeploy/step-package-cli': 4.0.0
+      '@octopusdeploy/step-package-cli': 4.0.1
       '@types/node': 14.18.63
       '@typescript-eslint/eslint-plugin': 4.33.0_lzzr7k3tjtqil7aczuhmzzwame
       '@typescript-eslint/parser': 4.33.0_e4zyhrvfnqudwdx5bevnvkluy4
@@ -42,7 +42,7 @@ importers:
       '@changesets/cli': 2.26.2
       '@octopusdeploy/hello-world-target': 1.0.3
       '@octopusdeploy/step-api': 4.0.0
-      '@octopusdeploy/step-package-cli': 4.0.0
+      '@octopusdeploy/step-package-cli': 4.0.1
       '@types/jest': 26.0.24
       '@types/node': 14.18.63
       '@typescript-eslint/eslint-plugin': 4.33.0
@@ -69,7 +69,7 @@ importers:
     devDependencies:
       '@changesets/cli': 2.26.2
       '@octopusdeploy/step-api': 4.0.0
-      '@octopusdeploy/step-package-cli': 4.0.0
+      '@octopusdeploy/step-package-cli': 4.0.1
       '@types/jest': 26.0.24
       '@types/node': 14.18.63
       '@typescript-eslint/eslint-plugin': 4.33.0_lzzr7k3tjtqil7aczuhmzzwame
@@ -94,7 +94,7 @@ importers:
     specifiers:
       '@changesets/cli': 2.26.2
       '@octopusdeploy/step-api': 4.0.0
-      '@octopusdeploy/step-package-cli': 4.0.0
+      '@octopusdeploy/step-package-cli': 4.0.1
       '@types/jest': 26.0.24
       '@types/node': 14.18.63
       '@typescript-eslint/eslint-plugin': 4.33.0
@@ -120,7 +120,7 @@ importers:
     devDependencies:
       '@changesets/cli': 2.26.2
       '@octopusdeploy/step-api': 4.0.0
-      '@octopusdeploy/step-package-cli': 4.0.0
+      '@octopusdeploy/step-package-cli': 4.0.1
       '@types/jest': 26.0.24
       '@types/node': 14.18.63
       '@typescript-eslint/eslint-plugin': 4.33.0_lzzr7k3tjtqil7aczuhmzzwame
@@ -1061,10 +1061,10 @@ packages:
       '@octopusdeploy/step-inputs': 4.0.0
     dev: true
 
-  /@octopusdeploy/step-package-build/4.0.0_typescript@4.4.4:
-    resolution: {integrity: sha512-B0HsOpeFACt6oS7RZAj2IDf/k1hkdFj79CktT4/Tf3gg2Y2PI9R6wNl4gVHvg/mKaQ7K5AD/l9yJDhXgBwLj5g==}
+  /@octopusdeploy/step-package-build/4.0.1_typescript@4.4.4:
+    resolution: {integrity: sha512-ujuMdCklhpJj5/NLn3IyRY6M/Lg3MnnxyKwpEVdxFbWVK2Z1MkTEve8JQAZpoTJshg979cNnfziq8SmbIljnNA==}
     dependencies:
-      '@octopusdeploy/step-runtime-inputs': 4.0.0
+      '@octopusdeploy/step-runtime-inputs': 4.1.0
       '@rollup/plugin-commonjs': 19.0.2_rollup@2.60.2
       '@rollup/plugin-json': 4.1.0_rollup@2.60.2
       '@rollup/plugin-node-resolve': 13.0.6_rollup@2.60.2
@@ -1087,12 +1087,12 @@ packages:
       - typescript
     dev: true
 
-  /@octopusdeploy/step-package-cli/4.0.0:
-    resolution: {integrity: sha512-Aef5KRXK+gnbxPKSXvO0/507T190PaUxCp8p1Dg1GpXJJTQCiOCY6O18T991+0EzE5Z2befryWHeFeY4vykiHQ==}
+  /@octopusdeploy/step-package-cli/4.0.1:
+    resolution: {integrity: sha512-D2LTKMhNqyjSr3YWezs9URNZFqBTKEoHnWL5N2YhT6ZxNiv630/u5arXbOArU1bQg1S+71FB9NL+QJhcNFjK6Q==}
     hasBin: true
     dependencies:
       '@actions/exec': 1.1.1
-      '@octopusdeploy/step-package-build': 4.0.0_typescript@4.4.4
+      '@octopusdeploy/step-package-build': 4.0.1_typescript@4.4.4
       '@octopusdeploy/step-packages-public-feed-encryption': 0.2.3
       adm-zip: 0.5.10
       commander: 7.2.0
@@ -1117,8 +1117,8 @@ packages:
     resolution: {integrity: sha512-2VacFhX4h8XbJRoxJH+dZK/ify2dsd13ZXPBBwXKvRmHgjN7DniVfocml2UuJv7JbWVCm81EiCOitWGn71Bdlg==}
     dev: true
 
-  /@octopusdeploy/step-runtime-inputs/4.0.0:
-    resolution: {integrity: sha512-1PSnk0z5WdZcc5OdLid9utiH1KfLr5Uc0NrXM3axKxILhWTJbHAp7oMY01I5FZQ3zmUwxt6FZGZoPUOMr4QgXw==}
+  /@octopusdeploy/step-runtime-inputs/4.1.0:
+    resolution: {integrity: sha512-HDjUaO8uw696Xqlo4DsFNXry6jXWLFv5XAW9UMt66vXL9bmTOI/O3SS4zNiOw1/lRKg503RXpH8kFYQYQ6E8Vw==}
     dependencies:
       '@octopusdeploy/step-inputs': 4.0.0
     dev: true
@@ -1334,7 +1334,7 @@ packages:
   /@types/resolve/1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
-      '@types/node': 16.11.20
+      '@types/node': 14.18.63
     dev: true
 
   /@types/semver/7.5.6:
@@ -5385,12 +5385,6 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       fast-diff: 1.2.0
-    dev: true
-
-  /prettier/2.4.1:
-    resolution: {integrity: sha512-9fbDAXSBcc6Bs1mZrDYb3XKzDLm4EXXL9sC1LqKP5rZkT6KRr/rf9amVUcODVXgguK/isJz0d0hP72WeaKWsvA==}
-    engines: {node: '>=10.13.0'}
-    hasBin: true
     dev: true
 
   /prettier/2.8.8:
