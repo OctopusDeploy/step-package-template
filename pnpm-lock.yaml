@@ -12,7 +12,7 @@ importers:
       '@typescript-eslint/parser': 4.33.0
       eslint: 7.32.0
       eslint-config-prettier: 8.10.0
-      eslint-plugin-import: 2.29.0
+      eslint-plugin-import: 2.29.1
       eslint-plugin-jest: 24.7.0
       eslint-plugin-prefer-arrow: 1.2.3
       eslint-plugin-prettier: 3.4.1
@@ -23,14 +23,14 @@ importers:
       tslib: 2.3.1
     devDependencies:
       '@changesets/cli': 2.26.2
-      '@octopusdeploy/eslint-plugin-step-package': 1.0.0_ocpxibq534nj3x2pxnelsyuspu
+      '@octopusdeploy/eslint-plugin-step-package': 1.0.0_l326p5zat2qsanpemtxuj4rrsa
       '@octopusdeploy/step-package-cli': 4.0.1
       '@types/node': 14.18.63
       '@typescript-eslint/eslint-plugin': 4.33.0_lzzr7k3tjtqil7aczuhmzzwame
       '@typescript-eslint/parser': 4.33.0_e4zyhrvfnqudwdx5bevnvkluy4
       eslint: 7.32.0
       eslint-config-prettier: 8.10.0_eslint@7.32.0
-      eslint-plugin-import: 2.29.0_ffi3uiz42rv3jyhs6cr7p7qqry
+      eslint-plugin-import: 2.29.1_ffi3uiz42rv3jyhs6cr7p7qqry
       eslint-plugin-jest: 24.7.0_3arronl5qrwk5yczp3sylkfitm
       eslint-plugin-prefer-arrow: 1.2.3_eslint@7.32.0
       eslint-plugin-prettier: 3.4.1_bbatpuwfbpnx32jr4tzjhnui3m
@@ -49,7 +49,7 @@ importers:
       '@typescript-eslint/parser': 4.33.0
       eslint: 7.32.0
       eslint-config-prettier: 8.10.0
-      eslint-plugin-import: 2.29.0
+      eslint-plugin-import: 2.29.1
       eslint-plugin-jest: 24.7.0
       eslint-plugin-prefer-arrow: 1.2.3
       eslint-plugin-prettier: 3.4.1
@@ -76,7 +76,7 @@ importers:
       '@typescript-eslint/parser': 4.33.0_e4zyhrvfnqudwdx5bevnvkluy4
       eslint: 7.32.0
       eslint-config-prettier: 8.10.0_eslint@7.32.0
-      eslint-plugin-import: 2.29.0_ffi3uiz42rv3jyhs6cr7p7qqry
+      eslint-plugin-import: 2.29.1_ffi3uiz42rv3jyhs6cr7p7qqry
       eslint-plugin-jest: 24.7.0_3arronl5qrwk5yczp3sylkfitm
       eslint-plugin-prefer-arrow: 1.2.3_eslint@7.32.0
       eslint-plugin-prettier: 3.4.1_bbatpuwfbpnx32jr4tzjhnui3m
@@ -101,7 +101,7 @@ importers:
       '@typescript-eslint/parser': 4.33.0
       eslint: 7.32.0
       eslint-config-prettier: 8.10.0
-      eslint-plugin-import: 2.29.0
+      eslint-plugin-import: 2.29.1
       eslint-plugin-jest: 24.7.0
       eslint-plugin-prefer-arrow: 1.2.3
       eslint-plugin-prettier: 3.4.1
@@ -127,7 +127,7 @@ importers:
       '@typescript-eslint/parser': 4.33.0_e4zyhrvfnqudwdx5bevnvkluy4
       eslint: 7.32.0
       eslint-config-prettier: 8.10.0_eslint@7.32.0
-      eslint-plugin-import: 2.29.0_ffi3uiz42rv3jyhs6cr7p7qqry
+      eslint-plugin-import: 2.29.1_ffi3uiz42rv3jyhs6cr7p7qqry
       eslint-plugin-jest: 24.7.0_3arronl5qrwk5yczp3sylkfitm
       eslint-plugin-prefer-arrow: 1.2.3_eslint@7.32.0
       eslint-plugin-prettier: 3.4.1_bbatpuwfbpnx32jr4tzjhnui3m
@@ -1021,7 +1021,7 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@octopusdeploy/eslint-plugin-step-package/1.0.0_ocpxibq534nj3x2pxnelsyuspu:
+  /@octopusdeploy/eslint-plugin-step-package/1.0.0_l326p5zat2qsanpemtxuj4rrsa:
     resolution: {integrity: sha512-32vp0ed09aCnBUv4oVyJ+Q9pmEG+3abkJqUCQB3rK+M8r5tvZbdIrU56meKCGeaG+Z7JwHOvNOloDF6Tlo+9BA==}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0
@@ -1029,7 +1029,7 @@ packages:
     dependencies:
       '@typescript-eslint/utils': 5.45.0_e4zyhrvfnqudwdx5bevnvkluy4
       eslint: 7.32.0
-      eslint-plugin-import: 2.29.0_ffi3uiz42rv3jyhs6cr7p7qqry
+      eslint-plugin-import: 2.29.1_ffi3uiz42rv3jyhs6cr7p7qqry
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -1504,7 +1504,7 @@ packages:
       debug: 4.3.4
       globby: 11.0.4
       is-glob: 4.0.3
-      semver: 7.3.7
+      semver: 7.5.4
       tsutils: 3.21.0_typescript@4.6.4
       typescript: 4.6.4
     transitivePeerDependencies:
@@ -1546,7 +1546,7 @@ packages:
       debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.3.7
+      semver: 7.5.4
       tsutils: 3.21.0_typescript@4.6.4
       typescript: 4.6.4
     transitivePeerDependencies:
@@ -2096,7 +2096,7 @@ packages:
   /call-bind/1.0.2:
     resolution: {integrity: sha512-7O+FbCihrB5WGbFYesctwmTKae6rOiIzmz1icreWJ+0aA7LJfuqhEso2T9ncpcFtzMQtzXf2QGGueWJGTYsqrA==}
     dependencies:
-      function-bind: 1.1.1
+      function-bind: 1.1.2
       get-intrinsic: 1.2.1
     dev: true
 
@@ -2798,8 +2798,8 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-import/2.29.0_ffi3uiz42rv3jyhs6cr7p7qqry:
-    resolution: {integrity: sha512-QPOO5NO6Odv5lpoTkddtutccQjysJuFxoPS7fAHO+9m9udNHvTCPSAMW9zGAYj8lAIdr40I8yPCdUYrncXtrwg==}
+  /eslint-plugin-import/2.29.1_ffi3uiz42rv3jyhs6cr7p7qqry:
+    resolution: {integrity: sha512-BbPC0cuExzhiMo4Ff1BTVwHpjjv28C5R+btTOGaCRC7UEz801up0JadwkeSk5Ued6TG34uaczuVuH6qyy5YUxw==}
     engines: {node: '>=4'}
     peerDependencies:
       '@typescript-eslint/parser': '*'
@@ -2826,7 +2826,7 @@ packages:
       object.groupby: 1.0.1
       object.values: 1.1.7
       semver: 6.3.1
-      tsconfig-paths: 3.14.2
+      tsconfig-paths: 3.15.0
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
@@ -3311,10 +3311,6 @@ packages:
     dev: true
     optional: true
 
-  /function-bind/1.1.1:
-    resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
-    dev: true
-
   /function-bind/1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
     dev: true
@@ -3350,7 +3346,7 @@ packages:
   /get-intrinsic/1.2.1:
     resolution: {integrity: sha512-2DcsyfABl+gVHEfCOaTrWgyt+tb6MSEGmKq+kI5HwLbIYgjgmMcV8KQ41uaKz1xxUcn9tJtgFbQUEVcEbd0FYw==}
     dependencies:
-      function-bind: 1.1.1
+      function-bind: 1.1.2
       has: 1.0.3
       has-proto: 1.0.1
       has-symbols: 1.0.3
@@ -3545,7 +3541,7 @@ packages:
     resolution: {integrity: sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==}
     engines: {node: '>= 0.4.0'}
     dependencies:
-      function-bind: 1.1.1
+      function-bind: 1.1.2
     dev: true
 
   /hasown/2.0.0:
@@ -6315,8 +6311,8 @@ packages:
       typescript: 4.5.5
     dev: true
 
-  /tsconfig-paths/3.14.2:
-    resolution: {integrity: sha512-o/9iXgCYc5L/JxCHPe3Hvh8Q/2xm5Z+p18PESBU6Ff33695QnCHBEjcytY2q19ua7Mbl/DavtBOLq+oG0RCL+g==}
+  /tsconfig-paths/3.15.0:
+    resolution: {integrity: sha512-2Ac2RgzDe/cn48GvOe3M+o82pEFewD3UPbyoUHHdKasHwJKjds4fLXWf/Ux5kATBKN20oaFGu+jbElp1pos0mg==}
     dependencies:
       '@types/json5': 0.0.29
       json5: 1.0.2
