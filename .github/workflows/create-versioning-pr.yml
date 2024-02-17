@@ -35,7 +35,7 @@ jobs:
       # run it here after the cache
       - run: pnpm install
 
-      - uses: changesets/action@v1.4.5
+      - uses: changesets/action@v1.4.6
         with:
           version: pnpm run ci:version
         env:
