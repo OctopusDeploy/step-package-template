@@ -199,7 +199,7 @@ jobs:
           echo 'pnpm run ci:publish -s ${{ secrets.OCTOPUS_URL }} -k ${{ secrets.OCTOPUS_API_KEY }} --space ${{ secrets.OCTOPUS_SPACE }} --project ${{ secrets.OCTOPUS_PROJECT }} --deployTo PreProd --channel Release'
 
       - name: Tag repo
-        uses: changesets/action@v1.4.6
+        uses: changesets/action@v1.4.7
         with:
           publish: npx changeset tag
         env:
