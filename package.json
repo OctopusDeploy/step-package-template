@@ -16,8 +16,8 @@
     "test": "pnpm --filter={steps/*} --filter={targets/*} --filter={common/*} run test"
   },
   "engines": {
-    "node": "^14.0.0",
-    "pnpm": "^7.9.5",
+    "node": "14.21.3",
+    "pnpm": "7.33.7",
     "npm": "not-supported.please-use-pnpm-instead"
   },
   "dependencies": {
